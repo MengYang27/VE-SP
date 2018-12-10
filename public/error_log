@@ -1,0 +1,1 @@
+[24-Nov-2018 11:16:40 UTC] PHP Fatal error:  Class 'App\Mail\ResetPassword' not found in /home4/at2l5loc/public_html/velocityenglish.com.au/app/Http/Controllers/admincontroller.php on line 124

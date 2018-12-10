@@ -1,0 +1,10 @@
+[08/11/2018]
+
+1. Modification in provider controller - 
+New permissions 
+
+A] App.Schedules.History
+B] App.Schedules.Future
+C] App.Schedules.Billing
+
+
