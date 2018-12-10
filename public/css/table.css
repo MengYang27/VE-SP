@@ -1,0 +1,182 @@
+/* Overwrite Bootstrap button style */
+.btn {
+    border-color: grey;
+    border-radius: 0 !important;
+    color: black;
+    background-color: white;
+}
+
+.btn.btn-wide {
+    min-width: 10rem;
+}
+
+.btn.btn-text {
+    text-align: left;
+    max-height: 1.7em;
+}
+
+.border-color-trans {
+    border-color: transparent;
+}
+
+/* Extend Bootstrap table style -> new:tag Start */
+table.tag {
+    border-collapse: collapse;    
+}
+
+table.tag tr td {
+    border: 1px solid grey;
+}
+
+td.tag {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+td.tag:hover {
+    cursor: pointer;
+}
+/* Extend Bootstrap table style -> new:tag End */
+
+/* Set timer button style start */
+td.timer {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    min-width: 150px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+td.timer:hover {
+    cursor: pointer;
+}
+
+td.timer:checked {
+    cursor: inherit;
+}
+/* Set timer button style end */
+
+/* Overwrite Bootstrap table style start */
+.table.table-bordered{
+    border:1px solid grey;
+    margin-top:20px;
+}
+
+.table.table-bordered > thead > tr > th{
+    border:1px solid grey;
+}
+
+.table.table-bordered > tbody > tr > td{
+    border:1px solid grey;
+}
+
+.table.table-bordered.table-lg-cell{
+    font-size: 4em;
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid grey;
+}
+
+.table.table-bordered.table-lg-cell a{
+    color: black;
+    display: block;
+    text-decoration: none;
+}
+
+.table.table-bordered.table-lg-cell > thead > tr > th{
+    border: grey;
+    min-height: 100%;
+}
+
+.table.table-bordered.table-lg-cell > tbody > tr > td{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border: 1px solid grey;
+}
+
+.table.table-bordered.table-md-cell{
+    font-size: 2em;
+    border: 1px solid grey;
+}
+
+.table.table-bordered.table-md-cell a{
+    color: black;
+    display: block;
+    text-decoration: none;
+}
+
+.table.table-bordered.table-md-cell > thead > tr > th{
+    border: grey;
+    min-height: 100%;
+}
+
+.table.table-bordered.table-md-cell > tbody > tr > td{
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    border: 1px solid grey;
+}
+
+.table.table-noborder {
+    border: 1px solid transparent;
+    margin-top:20px;
+}
+
+.table.table-noborder > thead > tr > th {
+    border: 1px solid transparent;
+}
+
+.table.table-noborder > tbody > tr > td {
+    border: 1px solid transparent;
+}
+/* Overwrite Bootstrap table style end */
+
+td.cell_mark {
+    text-align: center;
+}
+
+.result_emphasized {
+    color: aqua;
+    font-size: 72px;
+    font-weight: bold;
+}
+
+/* Prevent use to select text */
+.stop_select {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.stop_click {
+    pointer-events: none;
+}
+
+#readingcontent-banner {
+    text-align: center;
+    font-size: 32px;
+}
+
+#listeningcontent-banner {
+    text-align: left;
+    font-size: 32px;
+}
+
+
+/* Set top timer bar Start */
+.box {
+    border-top: 0px;
+    border-top-color: transparent;
+}
+
+#timer_bar {
+    height: 3px;
+    background-color: #127cd4;
+    width: 0%;
+}
+/* Set top timer bar End */
