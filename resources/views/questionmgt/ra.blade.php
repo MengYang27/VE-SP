@@ -297,7 +297,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!-- Self Sourced -->
 {{-- <script src="{{ asset('js/index.js') }}"></script> --}}
 <!-- Actions -- Self-sourced -->
-<script src="{{ asset('js/actions.js') }}"></script>
+<script src="{{ asset('js/question_form_actions.js') }}"></script>
 <script src="{{ asset('js/rars_form.js') }}"></script>
 
 @endsection
