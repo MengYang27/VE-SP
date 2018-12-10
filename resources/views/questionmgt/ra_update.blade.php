@@ -104,15 +104,15 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
 
 @section('additional_css')
 
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">  
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <style type="text/css">
   .error {
-      border-color: #FF4500;
-      color: #FF4500;
+    border-color: #FF4500;
+    color: #FF4500;
   }
 
   .valid {
-    color: green; 
+    color: green;
   }
 </style>
 @endsection
@@ -122,13 +122,13 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-<!-- Content Header (Page header) -->
-<section class="content-header">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
 
-</section>
+  </section>
 
 
-<?php
+  <?php
     // notification for after updating a record.
     // if(isset($_GET["updates"]) && $_GET["updates"] == '1') {
     // echo '<script type="text/javascript">document.addEventListener("DOMContentLoaded", function(event) {toastr.success("The record has been updated, cheers!");});</script>';
@@ -146,131 +146,146 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
     // var_dump($_POST);
   ?>
 
-<div class="container">
+  <div class="container">
 
-{{-- content here --}}
+    {{-- content here --}}
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="#">Velocity English - Read Aloud</a></li>
+      <!-- <li role="presentation"><a href="#"></a></li> -->
+    </ul>
 
-<!-- The content of the document...... -->
-<form id="form" method="post" action="{{ url('/questionmgt/speaking/ra_update') }}" enctype="multipart/form-data" onkeydown="if(event.target.nodeName !== 'TEXTAREA' && event.keyCode==13){return false;}">
-  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <!-- The content of the document...... -->
+    <form id="form" method="post" action="{{ url('/questionmgt/speaking/ra_update') }}" enctype="multipart/form-data"
+      onkeydown="if(event.target.nodeName !== 'TEXTAREA' && event.keyCode==13){return false;}">
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-  <div class="row" style="min-height: 135px;">
-    <div class="form-group col-md-6" style="padding-right: 10px; margin:0;">
-      <label for="title">Title</label>
-      <input style="max-width: 400px;" type="text" name="title" class="form-control" id="title" placeholder="Question Title ..." value="<?php echo $currentQuestion->title; ?>">
-    </div>
+      <div class="row" style="min-height: 135px;">
+        <div class="form-group col-md-6" style="padding-right: 10px; margin:0;">
+          <label for="title">Title</label>
+          <input style="max-width: 400px;" type="text" name="title" class="form-control" id="title" placeholder="Question Title ..."
+            value="<?php echo $currentQuestion->title; ?>">
+        </div>
 
-    <div class="form-group col-md-2">
-      <label class="form-check-label" for="isfrequent">
-        Frequent
-      </label>
-      <input name="isfrequent" class="form-check-input" type="checkbox" value="1" id="isfrequent" <?php echo ($currentQuestion->isfrequent !== '0' ? 'checked' : ''); ?> >
-    </div>
+        <div class="form-group col-md-2">
+          <label class="form-check-label" for="isfrequent">
+            Frequent
+          </label>
+          <input name="isfrequent" class="form-check-input" type="checkbox" value="1" id="isfrequent" <?php echo
+            ($currentQuestion->isfrequent !== '0' ? 'checked' : ''); ?> >
+        </div>
 
-    <div class="form-group col-md-2">
-      <label class="form-check-label" for="isnew">
-        New
-      </label>
-      <input name="isnew" class="form-check-input" type="checkbox" value="1" id="isnew" <?php echo ($currentQuestion->isnew !== '0' ? 'checked' : ''); ?> >
-    </div>
+        <div class="form-group col-md-2">
+          <label class="form-check-label" for="isnew">
+            New
+          </label>
+          <input name="isnew" class="form-check-input" type="checkbox" value="1" id="isnew" <?php echo
+            ($currentQuestion->isnew !== '0' ? 'checked' : ''); ?> >
+        </div>
 
-    <div class="form-group col-md-2">
-      <label class="form-check-label" for="isjj">
-        Is JiJing (机精)
-      </label>
-      <input name="isjj" class="form-check-input" type="checkbox" value="1" id="isjj" <?php echo ($currentQuestion->isjj !== '0' ? 'checked' : ''); ?> >
-    </div>
-
-
-    <div class="form-group col-md-2">
-      <label for="difficulty">Difficulty</label>
-      <select name="difficulty" class="form-control" id="difficulty">
-        <option value="0" <?php echo ($currentQuestion->difficulty == '0' ? 'selected' : ''); ?>>No Input</option>
-        <option value="1" <?php echo ($currentQuestion->difficulty == '1' ? 'selected' : ''); ?>>Very Easy</option>
-        <option value="2" <?php echo ($currentQuestion->difficulty == '2' ? 'selected' : ''); ?>>Easy</option>
-        <option value="3" <?php echo ($currentQuestion->difficulty == '3' ? 'selected' : ''); ?>>Medium</option>
-        <option value="4" <?php echo ($currentQuestion->difficulty == '4' ? 'selected' : ''); ?>>Hard</option>
-        <option value="5" <?php echo ($currentQuestion->difficulty == '5' ? 'selected' : ''); ?>>Very Hard</option>
-      </select>
-    </div>
-  <!-- .row -->
-</div>
-
-<div class="row">
-    <div class="form-group col-md-2">
-      <label for="exampleFormControlSelect1">Upload Question Audio 1</label> 
-      <label class="btn btn-default" style="display:block" for="my-file-selector">
-        Upload File Here
-      </label>
-        <input name="uploadedfile" id="my-file-selector" type="file" style="display:none" />
-    </div>
-
-    <div class="form-group col-md-2">
-      <label for="exampleFormControlSelect2">Upload Question Audio 2</label> 
-      <label class="btn btn-default" style="display:block" for="my-file-selector2">
-        Upload File Here
-      </label>
-        <input name="uploadedfile2" id="my-file-selector2" type="file" style="display:none" />
-    </div>
-
-    <div class="form-group col-md-2">
-      <label for="exampleFormControlSelect3">Upload Question Audio 3</label> 
-      <label class="btn btn-default" style="display:block" for="my-file-selector3">
-        Upload File Here
-      </label>
-        <input name="uploadedfile3" id="my-file-selector3" type="file" style="display:none"  />
-    </div>
-
-    
-    <div class="form-group col-md-2">
-        <label for="upload-file-info">Question Audio File 1:</label> 
-      <span class='label label-info' id="upload-file-info"><?php echo '' !== $currentQuestion->sampleAnswerAudioPath ? extractDateFromFN($currentQuestion->sampleAnswerAudioPath).' Uploaded' : null; ?></span><i id="delete1" class="glyphicon glyphicon-trash" aria-hidden="true"></i>
-    </div>
-
-         <div class="form-group col-md-2">
-        <label for="upload-file-info2">Question Audio File 2:</label> 
-      <span class='label label-info' id="upload-file-info2"><?php echo '' !== $currentQuestion->sampleAnswerAudioPath2 ? extractDateFromFN($currentQuestion->sampleAnswerAudioPath2).' Uploaded' : null; ?></span><i id="delete2" class="glyphicon glyphicon-trash" aria-hidden="true"></i>
-    </div> 
-
-          <div class="form-group col-md-2">
-        <label for="upload-file-info3">Question Audio File 3:</label> 
-      <span class='label label-info' id="upload-file-info3"><?php echo '' !== $currentQuestion->sampleAnswerAudioPath3 ? extractDateFromFN($currentQuestion->sampleAnswerAudioPath3).' Uploaded' : null; ?></span><i id="delete3" class="glyphicon glyphicon-trash" aria-hidden="true"></i>
-    </div>
-</div>
-
-<audio controls>
-  <source src = "{{asset($currentQuestion->sampleAnswerAudioPath)}}" type = "audio/mp3">
-  <source src = "{{asset($currentQuestion->sampleAnswerAudioPath)}}" type = "audio/m4a">
-  <source src = "{{asset($currentQuestion->sampleAnswerAudioPath)}}" type = "audio/wav">
-  <source src = "{{asset($currentQuestion->sampleAnswerAudioPath)}}" type = "audio/ogg">
-Your browser does not support the audio element.
-            </audio>
-
-<audio controls>
-  <source src = "{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type = "audio/mp3">
-  <source src = "{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type = "audio/m4a">
-  <source src = "{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type = "audio/mav">
-  <source src = "{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type = "audio/ogg">
-Your browser does not support the audio element.
-</audio>
+        <div class="form-group col-md-2">
+          <label class="form-check-label" for="isjj">
+            Is JiJing (机精)
+          </label>
+          <input name="isjj" class="form-check-input" type="checkbox" value="1" id="isjj" <?php echo ($currentQuestion->isjj
+          !== '0' ? 'checked' : ''); ?> >
+        </div>
 
 
-<audio controls>
-  <source src = "{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type = "audio/mp3">
-  <source src = "{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type = "audio/m4a">
-  <source src = "{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type = "audio/wav">
-  <source src = "{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type = "audio/ogg">
-Your browser does not support the audio element.
-</audio>
+        <div class="form-group col-md-2">
+          <label for="difficulty">Difficulty</label>
+          <select name="difficulty" class="form-control" id="difficulty">
+            <option value="0" <?php echo ($currentQuestion->difficulty == '0' ? 'selected' : ''); ?>>No Input</option>
+            <option value="1" <?php echo ($currentQuestion->difficulty == '1' ? 'selected' : ''); ?>>Very Easy</option>
+            <option value="2" <?php echo ($currentQuestion->difficulty == '2' ? 'selected' : ''); ?>>Easy</option>
+            <option value="3" <?php echo ($currentQuestion->difficulty == '3' ? 'selected' : ''); ?>>Medium</option>
+            <option value="4" <?php echo ($currentQuestion->difficulty == '4' ? 'selected' : ''); ?>>Hard</option>
+            <option value="5" <?php echo ($currentQuestion->difficulty == '5' ? 'selected' : ''); ?>>Very Hard</option>
+          </select>
+        </div>
+        <!-- .row -->
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-2">
+          <label for="exampleFormControlSelect1">Upload Question Audio 1</label>
+          <label class="btn btn-default" style="display:block" for="my-file-selector">
+            Upload File Here
+          </label>
+          <input name="uploadedfile" id="my-file-selector" type="file" style="display:none" />
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="exampleFormControlSelect2">Upload Question Audio 2</label>
+          <label class="btn btn-default" style="display:block" for="my-file-selector2">
+            Upload File Here
+          </label>
+          <input name="uploadedfile2" id="my-file-selector2" type="file" style="display:none" />
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="exampleFormControlSelect3">Upload Question Audio 3</label>
+          <label class="btn btn-default" style="display:block" for="my-file-selector3">
+            Upload File Here
+          </label>
+          <input name="uploadedfile3" id="my-file-selector3" type="file" style="display:none" />
+        </div>
+
+
+        <div class="form-group col-md-2">
+          <label for="upload-file-info">Question Audio File 1:</label>
+          <span class='label label-info' id="upload-file-info">
+            <?php echo '' !== $currentQuestion->sampleAnswerAudioPath ? extractDateFromFN($currentQuestion->sampleAnswerAudioPath).' Uploaded' : null; ?></span><i
+            id="delete1" class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="upload-file-info2">Question Audio File 2:</label>
+          <span class='label label-info' id="upload-file-info2">
+            <?php echo '' !== $currentQuestion->sampleAnswerAudioPath2 ? extractDateFromFN($currentQuestion->sampleAnswerAudioPath2).' Uploaded' : null; ?></span><i
+            id="delete2" class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+        </div>
+
+        <div class="form-group col-md-2">
+          <label for="upload-file-info3">Question Audio File 3:</label>
+          <span class='label label-info' id="upload-file-info3">
+            <?php echo '' !== $currentQuestion->sampleAnswerAudioPath3 ? extractDateFromFN($currentQuestion->sampleAnswerAudioPath3).' Uploaded' : null; ?></span><i
+            id="delete3" class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <audio controls>
+        <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/mp3">
+        <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/m4a">
+        <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/wav">
+        <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/ogg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio controls>
+        <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/mp3">
+        <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/m4a">
+        <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/mav">
+        <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/ogg">
+        Your browser does not support the audio element.
+      </audio>
+
+
+      <audio controls>
+        <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/mp3">
+        <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/m4a">
+        <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/wav">
+        <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/ogg">
+        Your browser does not support the audio element.
+      </audio>
 
 
 
-<div class="row" style="display:none">
-<div class="col-sm-3 col-md-3" style="padding: 0px">
-  <label for="select-group" style="color: lightgrey;">Categories</label>
-  <div class="select-group">
-    <select id="categories_primary" class="custom-select" size="12" onchange="showSite(this.value)" multiple>
-    <?php
+      <div class="row" style="display:none">
+        <div class="col-sm-3 col-md-3" style="padding: 0px">
+          <label for="select-group" style="color: lightgrey;">Categories</label>
+          <div class="select-group">
+            <select id="categories_primary" class="custom-select" size="12" onchange="showSite(this.value)" multiple>
+              <?php
       // require_once 'categories.php';
 
       // // Sample:
@@ -279,22 +294,22 @@ Your browser does not support the audio element.
       //   echo '<option value="' . $category_id . '">' . $categories[$category_id] . '</option>';
       // }
       ?>
-    </select>
-    </div>
-  </div>
+            </select>
+          </div>
+        </div>
 
 
-    <div class="col-sm-4 col-md-4">
-    <label for="sortable1" style="color: lightgrey;" >Secondary Categories</label>
-      <ul id="sortable1" class="connectedSortable">
-        <!-- <li class="ui-state-default">Item 5</li> -->
-      </ul>
-    </div>
-    
-    <div class="col-sm-4 col-md-4">
-    <label for="sortable2">Your tag outputs</label>
-      <ul id="sortable2" class="connectedSortable">
-        <?php
+        <div class="col-sm-4 col-md-4">
+          <label for="sortable1" style="color: lightgrey;">Secondary Categories</label>
+          <ul id="sortable1" class="connectedSortable">
+            <!-- <li class="ui-state-default">Item 5</li> -->
+          </ul>
+        </div>
+
+        <div class="col-sm-4 col-md-4">
+          <label for="sortable2">Your tag outputs</label>
+          <ul id="sortable2" class="connectedSortable">
+            <?php
             // in case of if there is no item in categories.
             if (!empty($currentQuestion->categories_array[0])) {
             foreach ($currentQuestion->categories_array as $component) {
@@ -304,41 +319,41 @@ Your browser does not support the audio element.
             }
         }
         ?>
-      </ul>
-    </div>
-      
-    <div id="hidden_categories"></div>
-    <input type="hidden" name="publishDate" value="<?php echo $currentQuestion->publishdate; ?>" />
-    <input type="hidden" name="currentID" value="<?php echo $currentQuestion->currentID; ?>" />
-    <input type="hidden" id="sampleAnswerAudioPath" name="sampleAnswerAudioPath" value="<?php echo $currentQuestion->sampleAnswerAudioPath; ?>" />
-    <input type="hidden" id="sampleAnswerAudioPath2" name="sampleAnswerAudioPath2" value="<?php echo $currentQuestion->sampleAnswerAudioPath2; ?>" />
-    <input type="hidden" id="sampleAnswerAudioPath3" name="sampleAnswerAudioPath3" value="<?php echo $currentQuestion->sampleAnswerAudioPath3; ?>" />
-</div>
+          </ul>
+        </div>
 
-  <div class="row">
-    <div class="form-group col-md-8">
-      <label for="content">Question Script</label>
-      <textarea name="content" class="form-control" id="content" rows="10"><?php echo $currentQuestion->content; ?></textarea>
-      <div id="word-count"></div>
-    </div>
-    <div class="form-group col-md-4">
-      <label for="content">Comment</label>
-      <textarea name="comment" class="form-control" id="comment" rows="10"><?php echo $currentQuestion->comment; ?></textarea>
-    </div>
+        <div id="hidden_categories"></div>
+        <input type="hidden" name="publishDate" value="<?php echo $currentQuestion->publishdate; ?>" />
+        <input type="hidden" name="currentID" value="<?php echo $currentQuestion->currentID; ?>" />
+        <input type="hidden" id="sampleAnswerAudioPath" name="sampleAnswerAudioPath" value="<?php echo $currentQuestion->sampleAnswerAudioPath; ?>" />
+        <input type="hidden" id="sampleAnswerAudioPath2" name="sampleAnswerAudioPath2" value="<?php echo $currentQuestion->sampleAnswerAudioPath2; ?>" />
+        <input type="hidden" id="sampleAnswerAudioPath3" name="sampleAnswerAudioPath3" value="<?php echo $currentQuestion->sampleAnswerAudioPath3; ?>" />
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-8">
+          <label for="content">Question Script</label>
+          <textarea name="content" class="form-control" id="content" rows="10"><?php echo $currentQuestion->content; ?></textarea>
+          <div id="word-count"></div>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="content">Comment</label>
+          <textarea name="comment" class="form-control" id="comment" rows="10"><?php echo $currentQuestion->comment; ?></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <button id="back-button" class="btn btn-primary pull-left" type="button">Back</button>
+        <?php if (!isset($_GET['view'])) {echo '<button id="submit-button" class="btn btn-primary pull-right" type="submit">Submit</button>';} ?>
+      </div>
+
+      <input type="hidden" id="wordCount" name="wordCount" value="0">
+    </form>
+
+
+
+    <!-- .container -->
   </div>
-
-  <div class="row">
-    <button id="back-button" class="btn btn-primary pull-left" type="button">Back</button>
-    <?php if (!isset($_GET['view'])) {echo '<button id="submit-button" class="btn btn-primary pull-right" type="submit">Submit</button>';} ?>
-  </div>
-
-   <input type="hidden" id="wordCount" name="wordCount" value="0">
-</form>
-
-
-  
-<!-- .container -->
-</div>
 
 </div>
 
@@ -347,7 +362,8 @@ Your browser does not support the audio element.
 @section('additional_js')
 <!-- jQuery -->
 {{-- <script src="{{ asset('library/jquery-validation-1.14.0/lib/jquery.js') }}"></script> --}}
-{{-- <!-- <script src="/library/jquery/dist/jquery.min.js"></script> --> --}}
+{{--
+<!-- <script src="/library/jquery/dist/jquery.min.js"></script> --> --}}
 <!-- jQuery-UI -->
 {{-- <script src="{{ asset('library/jquery-ui/jquery-ui.min.js') }}"></script> --}}
 <!-- Boostrap 3.3.7 -->

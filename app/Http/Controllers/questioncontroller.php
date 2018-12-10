@@ -46,6 +46,15 @@ class questioncontroller extends Controller
         return view('questionmgt/ra_update', $data);
     }
 
+    public function newRs(Request $request)
+    {
+        $data['adminuser'] = 'admin';
+        $data['has_student_css'] = 0;
+        $data['session'] = $request->session();
+
+        return view('questionmgt/rs', $data);
+    }
+
     public function questionDeletion(Request $request)
     {
         $data['adminuser'] = 'admin';

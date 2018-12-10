@@ -1053,7 +1053,7 @@ CREATE TABLE `rainfo` (
 CREATE TABLE `raquestion` (
   `RAQID` int(11) NOT NULL AUTO_INCREMENT,
   `RAID` int(11) DEFAULT NULL,
-  `content` varchar(2048) CHARACTER SET utf8 DEFAULT NULL,
+  `content` varchar(5000) CHARACTER SET utf8 DEFAULT NULL,
   `isDeleted` bit(1) DEFAULT 0,
   PRIMARY KEY (`RAQID`),
   UNIQUE KEY `RAQID_UNIQUE` (`RAQID`)

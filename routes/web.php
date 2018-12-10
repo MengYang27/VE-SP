@@ -21,7 +21,7 @@ Auth::routes();
 //Route::get('/', 'HomeController@index')->name('home');
 
 // Routes for emails and testing purpose ..
-Route::get('my-test-mail','admincontroller@myTestMail');
+Route::get('my-test-mail', 'admincontroller@myTestMail');
 
 // Basic login authenticate and logout options .....
 /*
@@ -76,7 +76,6 @@ Route::post('/ordermgtadd', 'admincontroller@orderUpdate')->name('ordermgtadd');
 Route::get('/ordermgtadd', 'admincontroller@orderUpdate')->name('ordermgtadd');
 Route::get('/orderedit/{order_id}', 'admincontroller@orderUpdate')->name('orderedit');
 
-
 // Rutes for package management ...
 Route::get('/packagemgt', 'admincontroller@packageList')->name('packagemgt');
 Route::get('/packagemgt/{search_string}', 'admincontroller@packageList')->name('packagemgt');
@@ -108,7 +107,7 @@ Route::post('/departmentmgtadd', 'admincontroller@departmentUpdate')->name('depa
 Route::get('/departmentmgtadd', 'admincontroller@departmentUpdate')->name('departmentmgtadd');
 Route::get('/departmentedit/{departmentid}', 'admincontroller@departmentUpdate')->name('departmentedit');
 
-// Routes for country management 
+// Routes for country management
 Route::get('/countrymgt', 'admincontroller@countryList')->name('countrymgt');
 Route::get('/countrymgt/{search_string}', 'admincontroller@countryList')->name('countrymgt');
 Route::get('/countrydel/{country_id}', 'admincontroller@countryDelete')->name('countrydel');
@@ -117,8 +116,7 @@ Route::post('/countryadd', 'admincontroller@countryUpdate')->name('countryadd');
 Route::get('/countryadd', 'admincontroller@countryUpdate')->name('countryadd');
 Route::get('/countryedit/{country_id}', 'admincontroller@countryUpdate')->name('countryedit');
 
-
-// Routes for class management 
+// Routes for class management
 Route::get('/classmgt', 'admincontroller@classList')->name('classmgt');
 Route::get('/classmgt/{search_string}', 'admincontroller@classList')->name('classmgt');
 Route::get('/classdel/{class_id}', 'admincontroller@classDelete')->name('classdel');
@@ -128,8 +126,7 @@ Route::post('/classadd', 'admincontroller@classUpdate')->name('classadd');
 Route::get('/classadd', 'admincontroller@classUpdate')->name('classadd');
 Route::get('/classedit/{class_id}', 'admincontroller@classUpdate')->name('classedit');
 
-
-// Routes for city management 
+// Routes for city management
 Route::get('/citymgt', 'admincontroller@cityList')->name('citymgt');
 Route::get('/citymgt/{search_string}', 'admincontroller@cityList')->name('citymgt');
 Route::get('/citydel/{city_id}', 'admincontroller@cityDelete')->name('citydel');
@@ -140,8 +137,7 @@ Route::post('/cityadd', 'admincontroller@cityUpdate')->name('cityadd');
 Route::get('/cityadd', 'admincontroller@cityUpdate')->name('cityadd');
 Route::get('/cityedit/{city_id}', 'admincontroller@cityUpdate')->name('cityedit');
 
-
-// Routes for course category management 
+// Routes for course category management
 Route::get('/categorymgt', 'admincontroller@categoryList')->name('categorymgt');
 Route::get('/categorymgt/{search_string}', 'admincontroller@categoryList')->name('categorymgt');
 Route::get('/categorydel/{category_id}', 'admincontroller@categoryDelete')->name('categorydel');
@@ -150,8 +146,7 @@ Route::post('/categoryadd', 'admincontroller@categoryUpdate')->name('categoryadd
 Route::get('/categoryadd', 'admincontroller@categoryUpdate')->name('categoryadd');
 Route::get('/categoryedit/{category_id}', 'admincontroller@categoryUpdate')->name('categoryedit');
 
-
-// Routes for course management 
+// Routes for course management
 Route::get('/coursemgt', 'admincontroller@courseList')->name('coursemgt');
 Route::get('/coursemgt/{search_string}', 'admincontroller@courseList')->name('coursemgt');
 Route::get('/coursedel/{course_id}', 'admincontroller@courseDelete')->name('coursedel');
@@ -160,7 +155,7 @@ Route::post('/courseadd', 'admincontroller@courseUpdate')->name('courseadd');
 Route::get('/courseadd', 'admincontroller@courseUpdate')->name('courseadd');
 Route::get('/courseedit/{course_id}', 'admincontroller@courseUpdate')->name('courseedit');
 
-// Routes for material management 
+// Routes for material management
 Route::get('/materialmgt', 'admincontroller@materialmgt')->name('materialmgt');
 Route::get('/materialmgt/{search_string}', 'admincontroller@materialmgt')->name('materialmgt');
 Route::get('/materialdel/{material_det_id}', 'admincontroller@materialdel')->name('materialdel');
@@ -171,8 +166,6 @@ Route::get('/materialedit/{material_det_id}', 'admincontroller@materialadd')->na
 
 Route::get('/material', 'admincontroller@materialStudents')->name('material');
 
-
-
 // Routes for notification management ..
 Route::get('/notificationmgt', 'admincontroller@notificationList')->name('notificationmgt');
 Route::get('/notificationmgt/{search_string}', 'admincontroller@notificationList')->name('notificationmgt');
@@ -182,7 +175,6 @@ Route::post('/notificationadd', 'admincontroller@notificationUpdate')->name('not
 Route::get('/notificationadd', 'admincontroller@notificationUpdate')->name('notificationadd');
 Route::get('/notificationedit/{notificationid}', 'admincontroller@notificationUpdate')->name('notificationedit');
 
-
 // Rutes for badgement and its related operations ...
 Route::get('/badgemgt', 'admincontroller@badgemgt')->name('badgemgt');
 Route::get('/badgemgt/{search_string}', 'admincontroller@badgemgt')->name('badgemgt');
@@ -191,7 +183,6 @@ Route::get('/badgemgtdel/{badgeid}', 'admincontroller@badgemgtdel')->name('badge
 Route::post('/badgemgtadd', 'admincontroller@badgemgtadd')->name('badgemgtadd');
 Route::get('/badgemgtadd', 'admincontroller@badgemgtadd')->name('badgemgtadd');
 Route::get('/badgemgtedit/{badgeid}', 'admincontroller@badgemgtadd')->name('badgemgtedit');
-
 
 // Routes for survey ...
 
@@ -248,7 +239,6 @@ Route::post('/teammgtadd', 'admincontroller@teamDataUpdate')->name('teammgtadd')
 
 Route::get('/teamedit/{teamid}', 'admincontroller@teamDataUpdate')->name('teamedit');
 
-
 /* Operations for Job types and Job */
 Route::get('/jobtypelist', 'jobcontroller@jobTypeList')->name('jobtypelist');
 Route::get('/jobtypelist/{search_string}', 'jobcontroller@jobTypeList')->name('jobtypelist');
@@ -279,14 +269,23 @@ Route::post('/locationadd', 'admincontroller@locationDataUpdate')->name('locatio
 
 Route::get('/locationedit/{locationid}', 'admincontroller@locationDataUpdate')->name('locationedit');
 
-
 /* Question Management */
+
+/* Speaking */
 Route::get('/questionmgt/speaking', 'questioncontroller@show')->name('questionmgt');
 Route::get('/questionmgt/questiondata', 'questioncontroller@questionData')->name('questiondata');
+// Ra
 Route::get('/questionmgt/speaking/ra', 'questioncontroller@newRa')->name('newRa');
 Route::post('/questionmgt/speaking/ra', 'questioncontroller@newRa')->name('newRaPost');
-Route::get('/questionmgt/speaking/ra_update', 'questioncontroller@raUpdate')->name('raUpdate');
-Route::post('/questionmgt/speaking/ra_update', 'questioncontroller@raUpdate')->name('raUpdate');
+Route::get('/questionmgt/speaking/ra_update', 'questioncontroller@raUpdate')->name('raUpdateEnter');
+Route::post('/questionmgt/speaking/ra_update', 'questioncontroller@raUpdate')->name('raUpdatePost');
+// Rs
+Route::get('/questionmgt/speaking/rs', 'questioncontroller@newRs')->name('newRs');
+Route::post('/questionmgt/speaking/rs', 'questioncontroller@newRs')->name('newRsPost');
+Route::get('/questionmgt/speaking/rs_update', 'questioncontroller@rsUpdate')->name('rsUpdateEnter');
+Route::post('/questionmgt/speaking/rs_update', 'questioncontroller@rsUpdate')->name('rsUpdatePost');
+
+/* For all question deletion */
 Route::post('/questionmgt/question_deletion', 'questioncontroller@questionDeletion')->name('raDeletion');
 // Route::get('/questionmgt/audio/{songPath}', [
 //     'as' => 'audio',
@@ -295,8 +294,6 @@ Route::post('/questionmgt/question_deletion', 'questioncontroller@questionDeleti
 // test page
 Route::get('/questionmgt/test', 'questioncontroller@test');
 
-
-
 /*
 Route::get('/home', function () {
     return view('home');
@@ -304,8 +301,6 @@ Route::get('/home', function () {
 */
 // test page
 Route::get('/questionmgt/test', 'questioncontroller@test');
-
-
 
 /*
 Route::get('/home', function () {
