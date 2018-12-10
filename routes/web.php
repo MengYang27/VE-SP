@@ -286,7 +286,7 @@ Route::get('/questionmgt/speaking/rs_update', 'questioncontroller@rsUpdate')->na
 Route::post('/questionmgt/speaking/rs_update', 'questioncontroller@rsUpdate')->name('rsUpdatePost');
 
 /* For all question deletion */
-Route::post('/questionmgt/question_deletion', 'questioncontroller@questionDeletion')->name('raDeletion');
+Route::post('/questionmgt/question_deletion', 'questioncontroller@questionDeletion')->name('AllQuestionDeletion');
 // Route::get('/questionmgt/audio/{songPath}', [
 //     'as' => 'audio',
 //     'uses' => 'questioncontroller@getSong'
@@ -318,22 +318,22 @@ Route::get('/bookshelf', 'homepagecontroller@bookshelf');
 /* Student Practices Routes */
 Route::get('/practise', [
     'middleware' => 'SetSideBar',
-    'uses' => 'PractiseController@index'
+    'uses' => 'PractiseController@index',
 ]);
 
 Route::get('/practise/{category}', [
     'middleware' => 'SetSideBar',
-    'uses' => 'PractiseController@index'
+    'uses' => 'PractiseController@index',
 ]);
 
-Route::get('/practise/{category}/{subclass}',[
+Route::get('/practise/{category}/{subclass}', [
     'middleware' => 'SetSideBar',
-    'uses' => 'PractiseController@redirectToList'
+    'uses' => 'PractiseController@redirectToList',
 ]);
 
-Route::get('/practise/{category}/{subclass}/{questionID}',[
+Route::get('/practise/{category}/{subclass}/{questionID}', [
     'middleware' => 'SetSideBar',
-    'uses' => 'PractiseController@redirectToQuestion'
+    'uses' => 'PractiseController@redirectToQuestion',
 ]);
 
 Route::get('/adminsettings', function () {

@@ -284,7 +284,7 @@ $(document).ready(function() {
 
     $.ajax({
       method: "POST",
-      url: "questionmgt/question_deletion",
+      url: "/questionmgt/question_deletion",
       data: { actionName: actionName, questionType: questionType, colValue: colValue,
               '_token': $('meta[name="csrf-token"]').attr('content')
             },
@@ -295,6 +295,10 @@ $(document).ready(function() {
      },
       error: function(jqxhr, status, exception) {
         alert('Exception:', exception);
+        console.log(exception);
+        console.log('action name: ', actionName);
+        console.log('questionName',  questionName);
+        console.log('questionType', questionType);
       }
     }).done(function( msg ) {
       $('#test').html(msg);

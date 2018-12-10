@@ -1,7 +1,7 @@
 <?php
 use App\Http\Model\raClass;
-?>
-<?php
+use App\Http\Model\rsClass;
+
 $questionType = $_POST['questionType'];
 $actionName = $_POST['actionName'];
 $colValue = $_POST['colValue'];

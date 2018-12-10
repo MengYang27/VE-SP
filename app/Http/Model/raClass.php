@@ -47,7 +47,6 @@ class raClass
             //       unlink($path);
             //     }
             //   }
-            // var_dump()
             DeleteFromTable($this->mainTableName, $this->mainID, $id);
             DeleteFromTable('raquestion', $this->mainID, $id);
             DeleteFromTable('raanswer', $this->mainID, $id);

@@ -40,14 +40,14 @@ class rsClass
     public function deleteMe($ids)
     {
         foreach ($ids as $id) {
-            $this->allPaths = SelectSigleRow('rsinfo', 'rsid', $id)[0][11];
-            // var_dump(SelectSigleRow('rsinfo', 'rsid', $id)[0][14]);
-            $allPaths_array = string_to_array(',', $this->allPaths);
-            foreach ($allPaths_array as $path) {
-                if (file_exists($path)) {
-                    unlink($path);
-                }
-            }
+            // $this->allPaths = SelectSigleRow('rsinfo', 'rsid', $id)[0][11];
+            // // var_dump(SelectSigleRow('rsinfo', 'rsid', $id)[0][14]);
+            // $allPaths_array = string_to_array(',', $this->allPaths);
+            // foreach ($allPaths_array as $path) {
+            //     if (file_exists($path)) {
+            //         unlink($path);
+            //     }
+            // }
             DeleteFromTable($this->mainTableName, $this->mainID, $id);
             DeleteFromTable('rsquestion', $this->mainID, $id);
             DeleteFromTable('rsanswer', $this->mainID, $id);

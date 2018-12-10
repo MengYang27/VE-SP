@@ -3,7 +3,7 @@
 
      function OpenConn()
      {
-         //  $conn = new mysqli('localhost', 'debian-sys-maint', 'vjS03YXDS1PihtX8', 've_test', '33060');
+         $conn = new mysqli('localhost', 'debian-sys-maint', 'vjS03YXDS1PihtX8', 've_test', '33060');
          // $conn= new mysqli("localhost","root","123456","ve_test");
          // $conn = new mysqli("localhost", "homestead", "secret", "at2l5loc_velocity", "33060");
          //  return $conn;
@@ -11,7 +11,7 @@
          // $conn= new mysqli("localhost","root","123456","ve_test");
          // $conn = new mysqli("localhost", "homestead", "secret", "at2l5loc_velocity", "33060");
          // LAN CONNTECTION - COMMENT OUT WHEN CHANGED
-         $conn = new mysqli('localhost', 'root', 'root', 've_test', '3306');
+         //  $conn = new mysqli('localhost', 'root', 'root', 've_test', '3306');
 
          return $conn;
      }
@@ -29,6 +29,7 @@
      function DeleteFromTable($tableName, $colName, $colValue)
      {
          $sql = 'update '.$tableName.' set isDeleted=1 where '.$colName.' = '.$colValue;
+
          $conn = OpenConn();
          $result = $conn->query($sql);
          $conn->close();
