@@ -1,25 +1,18 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\MessageBag;
-
-use Illuminate\Routing\UrlGenerator;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 //use App\adminuser;
-use DB;
-use Session;
 use Input;
 
 class questioncontroller extends Controller
 {
-
-
-	public function show(Request $request)
-	{
-        $data['adminuser'] 			= 'admin';
-        $data['has_student_css'] 	= 0;
+    public function show(Request $request)
+    {
+        $data['adminuser'] = 'admin';
+        $data['has_student_css'] = 0;
         $data['session'] = $request->session();
 
         return view('questionmgt', $data);
@@ -27,8 +20,8 @@ class questioncontroller extends Controller
 
     public function questionData(Request $request)
     {
-        $data['adminuser'] 			= 'admin';
-        $data['has_student_css'] 	= 0;
+        $data['adminuser'] = 'admin';
+        $data['has_student_css'] = 0;
         $data['session'] = $request->session();
         $data['mainTableName'] = $request->input('mainTableName');
 
@@ -37,32 +30,31 @@ class questioncontroller extends Controller
 
     public function newRa(Request $request)
     {
-        $data['adminuser'] 			= 'admin';
-        $data['has_student_css'] 	= 0; 
+        $data['adminuser'] = 'admin';
+        $data['has_student_css'] = 0;
         $data['session'] = $request->session();
-        
+
         return view('questionmgt/ra', $data);
     }
 
     public function raUpdate(Request $request)
     {
-        $data['adminuser'] 			= 'admin';
-        $data['has_student_css'] 	= 0; 
+        $data['adminuser'] = 'admin';
+        $data['has_student_css'] = 0;
         $data['session'] = $request->session();
-        
+
         return view('questionmgt/ra_update', $data);
     }
 
     public function questionDeletion(Request $request)
     {
-        $data['adminuser'] 			= 'admin';
-        $data['has_student_css'] 	= 0; 
+        $data['adminuser'] = 'admin';
+        $data['has_student_css'] = 0;
         $data['session'] = $request->session();
         $data['updates'] = Input::get('updates', 0);
 
         return view('questionmgt/question_deletion', $data);
     }
-
 
     // public function getSong($songPath) {
     //     $path = $songPath;
@@ -78,12 +70,10 @@ class questioncontroller extends Controller
     //     \App::abort(400);
     // }
 
-
-
     public function test(Request $request)
     {
-        $data['adminuser'] 			= 'admin';
-        $data['has_student_css'] 	= 0;
+        $data['adminuser'] = 'admin';
+        $data['has_student_css'] = 0;
         $data['session'] = $request->session();
 
         return view('test', $data);
