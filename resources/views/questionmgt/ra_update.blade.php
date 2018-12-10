@@ -238,11 +238,18 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
     </div>
 </div>
 
-<div class="audio"><a href="{{ route('audio', ['songPath' => '/home/vagrant/code/storage/upload/ra/ra_2_2018-12-08-11-44-12_199324172A-F961-E769.mp3']) }}">open PDF<?php echo $currentQuestion->sampleAnswerAudioPath;?></a></div>
-<aduio src="{{URL::asset('/home/vagrant/code/storage/upload/ra/ra_2_2018-12-08-11-44-12_199324172A-F961-E769.mp3')}}">this is a audio,</aduio>
+<audio controls>
+  <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/mp3">
+Your browser does not support the audio element.
+</audio>
 
 <audio controls>
-  <source src="/home/vagrant/code/storage/upload/ra/ra_2_2018-12-08-11-44-12_199324172A-F961-E769.mp3" type="audio/mp3">
+  <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/mp3">
+Your browser does not support the audio element.
+</audio>
+
+<audio controls>
+  <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/mp3">
 Your browser does not support the audio element.
 </audio>
 

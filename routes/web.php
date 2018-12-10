@@ -288,10 +288,10 @@ Route::post('/questionmgt/speaking/ra', 'questioncontroller@newRa')->name('newRa
 Route::get('/questionmgt/speaking/ra_update', 'questioncontroller@raUpdate')->name('raUpdate');
 Route::post('/questionmgt/speaking/ra_update', 'questioncontroller@raUpdate')->name('raUpdate');
 Route::post('/questionmgt/question_deletion', 'questioncontroller@questionDeletion')->name('raDeletion');
-Route::get('/questionmgt/audio/{songPath}', [
-    'as' => 'audio',
-    'uses' => 'questioncontroller@getSong'
-]);
+// Route::get('/questionmgt/audio/{songPath}', [
+//     'as' => 'audio',
+//     'uses' => 'questioncontroller@getSong'
+// ]);
 // test page
 Route::get('/questionmgt/test', 'questioncontroller@test');
 

@@ -64,19 +64,19 @@ class questioncontroller extends Controller
     }
 
 
-    public function getSong($songPath) {
-        $path = $songPath;
+    // public function getSong($songPath) {
+    //     $path = $songPath;
 
-        $user = \Auth::user();
-        if($user->activated_at) {
-            $response = new BinaryFileResponse($path);
-            return File::get($songPath);
-            // BinaryFileResponse::trustXSendfileTypeHeader();
+    //     $user = \Auth::user();
+    //     if($user->activated_at) {
+    //         $response = new BinaryFileResponse($path);
+    //         return File::get($songPath);
+    //         // BinaryFileResponse::trustXSendfileTypeHeader();
 
-            // return $response;
-        }
-        \App::abort(400);
-    }
+    //         // return $response;
+    //     }
+    //     \App::abort(400);
+    // }
 
 
 

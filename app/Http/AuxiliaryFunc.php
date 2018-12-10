@@ -26,17 +26,18 @@ function string_to_array($separator ,$string) {
 function generate_audio_path ($question_type, $currentID, $file_type) {
     $current_datetime = date("Y-m-d-h-i-s");
     $standarized_file_name = $question_type.'_'. $currentID. '_' .$current_datetime.'_'.rand(10, 100). guid() . '.'.explode('/', $file_type)[1];
-    $folderPath = storage_path().'/upload/'.$question_type;
+    $folderPath = storage_path().'/app/public/question_audio/'.$question_type;
     $audioPath = $folderPath.'/'.$standarized_file_name;
+    $audioPathMapped = 'storage/question_audio/'.$question_type.'/'.$standarized_file_name;
 
-    if (! is_dir(storage_path().'/upload')) {
-        mkdir(storage_path().'/upload');
+    if (! is_dir(storage_path().'/app/public/question_audio')) {
+        mkdir(storage_path().'/app/public/question_audio');
     }
     
     if (! is_dir($folderPath)) {
         mkdir($folderPath);
     }
-    return $audioPath;
+    return $audioPathMapped;
 }
 
 
