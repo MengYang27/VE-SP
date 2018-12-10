@@ -240,16 +240,25 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
 
 <audio controls>
   <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/mp3">
+  <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/m4a">
+  <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/wav">
+  <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/ogg">
 Your browser does not support the audio element.
 </audio>
 
 <audio controls>
   <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/mp3">
+  <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/m4a">
+  <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/mav">
+  <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/ogg">
 Your browser does not support the audio element.
 </audio>
 
 <audio controls>
   <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/mp3">
+  <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/m4a">
+  <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/wav">
+  <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/ogg">
 Your browser does not support the audio element.
 </audio>
 
