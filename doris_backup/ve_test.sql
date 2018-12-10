@@ -25,7 +25,7 @@ CREATE DATABASE IF NOT EXISTS `ve_test` DEFAULT CHARACTER SET utf8 COLLATE utf8_
 USE `ve_test`;
 
 -- --------------------------------------------------------
-
+--
 --
 -- Table structure for table `adminmaster`
 --
