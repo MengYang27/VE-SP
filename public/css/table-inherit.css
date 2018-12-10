@@ -1,0 +1,6 @@
+.table.table-bordered a{
+    color: black;
+    font-size: 1em;
+    display: block;
+    text-decoration: none;
+}

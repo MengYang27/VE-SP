@@ -1,0 +1,37 @@
+.col-xs-5.thumbnail ul li {
+  min-height: 4em; // this is it
+}
+
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+.center-block {
+    margin-top: 200%;
+    margin-left: 30%;
+}
+
+
+.glyphicon.center-block {
+    font-size: 2em;
+}
+
+.sortable-placeholder {
+    background-color: rgb(236, 236, 236) !important;
+}
+
+.right-answer {
+    color: green;
+}
+
+.wrong-answer {
+   color: red;    
+}
+
+input {
+    background-color: white;
+    border: 1px solid grey;
+}
