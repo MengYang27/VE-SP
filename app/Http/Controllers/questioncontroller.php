@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
 //use App\adminuser;
 use Input;
 
@@ -55,6 +54,15 @@ class questioncontroller extends Controller
         return view('questionmgt/rs', $data);
     }
 
+    public function rsUpdate(Request $request)
+    {
+        $data['adminuser'] = 'admin';
+        $data['has_student_css'] = 0;
+        $data['session'] = $request->session();
+
+        return view('questionmgt/rs_update', $data);
+    }
+
     public function questionDeletion(Request $request)
     {
         $data['adminuser'] = 'admin';
@@ -64,20 +72,6 @@ class questioncontroller extends Controller
 
         return view('questionmgt/question_deletion', $data);
     }
-
-    // public function getSong($songPath) {
-    //     $path = $songPath;
-
-    //     $user = \Auth::user();
-    //     if($user->activated_at) {
-    //         $response = new BinaryFileResponse($path);
-    //         return File::get($songPath);
-    //         // BinaryFileResponse::trustXSendfileTypeHeader();
-
-    //         // return $response;
-    //     }
-    //     \App::abort(400);
-    // }
 
     public function test(Request $request)
     {

@@ -73,6 +73,7 @@ class rsClass
       'publishDate' => "'".addslashes($this->publishdate)."'",
       'updateDate' => "'".addslashes($this->updatedate)."'",
       'category' => "'".addslashes($this->categories)."'",
+      'inputUser' => $this->inputUser,
       );
         $this->rsquestionArray = array(
       'audioPath' => "'".addslashes($this->audioPaths)."'",

@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   header('content-type:text/html;charset=uft-8');
   // 重定向页面
   header('location:/questionmgt/speaking?updates=1');
-  // exit();
+  exit();
 }
 
 ?>
@@ -78,7 +78,7 @@ $currentQuestion->difficulty = $infoFromDB[0][3];
 $currentQuestion->isnew = $infoFromDB[0][4];
 $currentQuestion->isjj = $infoFromDB[0][5];
 $currentQuestion->publishdate = $infoFromDB[0][6]; // create date
-$currentQuestion->updatedate = date("Y-m-d");
+$currentQuestion->updatedate = date("Y-m-d H:i:s");
 $currentQuestion->content = $infoFromDB[0][13];
 $currentQuestion->comment = $infoFromDB[0][18];
 $currentQuestion->categories = $infoFromDB[0][8];

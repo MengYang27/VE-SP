@@ -2,6 +2,15 @@ const $table = $('#table');
 const $remove = $('#remove');
 let selections = [];
 
+// for trim strings
+if(typeof(String.prototype.trim) === "undefined")
+{
+    String.prototype.trim = function() 
+    {
+        return String(this).replace(/^\s+|\s+$/g, '');
+    };
+}
+
 
 function initTable() {
     $table.bootstrapTable({
