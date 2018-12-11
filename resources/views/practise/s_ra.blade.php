@@ -1,16 +1,13 @@
-@extends('layouts.main')
-@php
-$Question = json_decode($Question_Object, true);
-@endphp
+@extends('layouts.practiseLayout')
 
 @section('extra-metas')
-<meta id='audio_src' content="{{ URL::to('/').$Question['Audio']['Src'] }}">
+<meta id='audio_src' content="{{ URL::to('/').$question['Audio']['Src'] }}">
 @endsection
 
 @section('extra-styles')
-{{ HTML::style('css/simple-audio-player.css') }}
-{{ HTML::style('css/checkbox.css') }}
-{{ HTML::style('css/table.css') }}
+<link type="text/css" rel="stylesheet" href="css/simple-audio-player.css">
+<link type="text/css" rel="stylesheet" href="css/checkbox.css">
+<link type="text/css" rel="stylesheet" href="css/table.css">
 @endsection
 
 @section('content')
@@ -24,10 +21,10 @@ $Question = json_decode($Question_Object, true);
                 <!-- .box -->
                 <div class="box-header with-border">
                     <!-- box-header -->
-                    <h3 class="box-title">{{ $Question['Title'] }}</h3>
+                    <h3 class="box-title">{{ $question['Title'] }}</h3>
                     <table class="pull-right">
                         <tr>
-                            @foreach ($Question['Tags'] as $tag => $tag_class)
+                            @foreach ($question['Tags'] as $tag => $tag_class)
                             <td>
                                 <div class="{{ $tag_class }}">
                                     {{ $tag }}
@@ -43,7 +40,7 @@ $Question = json_decode($Question_Object, true);
                         <div class="col-xs-12">
                             <h5>Read this text aloud as naturally and clearly as possible.</h5>
                             <p class="paragraph">
-                                {{ $Question['Content'] }}
+                                {{ $question['Content'] }}
                             </p>
                         </div>
                     </div>
@@ -142,12 +139,12 @@ $Question = json_decode($Question_Object, true);
 </section>
 <!-- /.content -->
 @endsection
-
+@include('adminmenu')
 @section('extra-scripts')
-{{ HTML::script('js/wavesurfer.js') }}
-{{ HTML::script('js/audio_shared_functions.js') }}
-{{ HTML::script('js/recorder.js') }}
-{{ HTML::script('js/question_audio_play.js') }}
-{{ HTML::script('js/audio_record.js') }}
-{{ HTML::script('js/timer.js') }}
+<script type="text/javascript" src="js/wavesurfer.js"></script>
+<script type="text/javascript" src="js/audio_shared_functions.js"></script>
+<script type="text/javascript" src="js/recorder.js"></script>
+<script type="text/javascript" src="js/question_audio_play.js"></script>
+<script type="text/javascript" src="js/audio_record.js"></script>
+<script type="text/javascript" src="js/timer.js"></script>
 @endsection
