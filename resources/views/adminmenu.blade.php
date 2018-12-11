@@ -283,7 +283,7 @@ $subclass = 'jobadd';
 @elseif(Request::is('questionmgt/*'))
 @php
 $mainclass = 'questionmanagement';
-$rid = $_GET['rid'];
+$rid = isset($_GET['rid']) ? $_GET['rid'] : 0;
 switch ($rid) {
 case 1:
 $subclass = 'speaking';
