@@ -67,121 +67,131 @@
                     <!-- .box -->
                     <div class="box-header with-border">
                         <!-- box-header -->
-                        <h3 class="box-title">{{ $question['Title'] }}</h3>
-                        <table class="pull-right">
-                            <tr>
-                                @foreach ($question['Tags'] as $tag => $tag_class)
-                                <td>
-                                    <div class="{{ $tag_class }}">
-                                        {{ $tag }}
-                                    </div>
-                                </td>
-                                @endforeach
-                            </tr>
-                        </table>
+                        <h3 class="box-title">{{ $title }}</h3>
                     </div>
                     <!--./box-header -->
                     <div class="box-body">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <h5>Read this text aloud as naturally and clearly as possible.</h5>
-                                <p class="paragraph">
-                                    {{ $question['Content'] }}
-                                </p>
-                            </div>
-                        </div>
-                        <!-- ./row -->
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <h5>Record</h5>
-                                <div class="row">
-                                    <div class="col-xs-2">
-                                        <div class="progress progress-xxs">
-                                            <div id="timer" class="progress-bar progress-bar-danger" style="width: 0%">
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                            <div class="row">
+                                <div class="col-sm-6">
                                 </div>
-                                <div class="row is-table-row">
-                                    <div id="record-play-button" class="col-xs-4 col-sm-2 col-md-2 col-lg-1"><a class="btn btn-app"><i
-                                                class="fa fa-play"></i> Play</a></div>
-                                    <div id="record-step-backward-button" class="col-xs-4 col-sm-2 col-md-2 col-lg-1"><a
-                                            class="btn btn-app"><i class="fa fa-step-backward"></i> Rsest</a></div>
-                                    <div class="hidden-xs hidden-sm hidden-md col-lg-1"></div>
-                                    <div id="record-audio-play" class="hidden-xs col-sm-6 col-md-6 col-lg-7"></div>
-                                    <div id="record-tracktime" class="col-xs-4 col-sm-2 col-md-2 col-lg-2" style="margin-top:20px"></div>
+                                <div class="col-sm-6">
                                 </div>
                             </div>
-                            <!-- ./col-xs-12 -->
-                        </div>
-                        <!-- ./row -->
-                        <div class="row form-group">
-                            <!-- .row -->
-                            <div class="col-xs-3">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid"
+                                        aria-describedby="example2_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1"
+                                                    colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">No.</th>
+                                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                    colspan="1" aria-label="Browser: activate to sort column ascending">Question</th>
+                                                <!-- <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Platform(s)</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Engine version</th>
+                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">CSS grade</th>-->
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr onclick="location.href = './read_aloud_question.html';" role="row"
+                                                class="odd">
+                                                <td width="10%" nclass="sorting_1">1</td>
+                                                <td>
+                                                    Don't forget to do a library tour on the first week of your
+                                                    semester.
+                                                </td>
+                                            </tr>
+
+                                            <tr role="row" class="even">
+                                                <td width="10%" nclass="sorting_1">2</td>
+                                                <td>
+                                                    The Africa elephant is the largest land mammal in the world.
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td width="10%" nclass="sorting_1">3</td>
+                                                <td>Acupuncture is a technique involved in traditional Chinese
+                                                    medicine.</td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td width="10%" nclass="sorting_1">4</td>
+                                                <td>...</td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td width="10%" nclass="sorting_1">5</td>
+                                                <td>...</td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td width="10%" nclass="sorting_1">6</td>
+                                                <td>...</td>
+
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td width="10%" nclass="sorting_1">7</td>
+                                                <td>...</td>
+
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td width="10%" nclass="sorting_1">8</td>
+                                                <td>...</td>
+
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td width="10%" nclass="sorting_1">9</td>
+                                                <td>...</td>
+                                            </tr>
+                                            <tr role="row" class="even">
+                                                <td width="10%" nclass="sorting_1">10</td>
+                                                <td>...</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <div class="col-xs-8">
-                                <button class="col-xs-4 col-sm-3 col-md-4 col-lg-3 btn" id="record-button" onclick="startRecording(this, 'repeat_sentence');">record</button>
-                                <span class="col-xs-1"></span>
-                                <button class="col-xs-4 col-sm-3 col-md-4 col-lg-3 btn" id="stop-button" onclick="stopRecording(this);"
-                                    disabled>stop</button>
-                            </div>
-                            <div class="col-xs-1">
-                            </div>
-                        </div>
-                        <!-- ./row -->
-                        <div class="row">
-                            <!-- .row -->
-                            <div class="col-xs-12">
-                                <div class="box collapsed-box box-solid">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title">Question Answer</h3>
-                                        <div class="box-tools pull-right">
-                                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                                                Press Me To See >>>>
-                                                <i class="fa fa-plus"></i>
-                                            </button>
-                                        </div>
-                                        <!-- /.box-tools -->
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing
+                                        1 to 10 of 57 entries</div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                                        <ul class="pagination">
+                                            <li class="paginate_button previous disabled" id="example2_previous">
+                                                <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a>
+                                            </li>
+                                            <li class="paginate_button active">
+                                                <a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0">1</a>
+                                            </li>
+                                            <li class="paginate_button ">
+                                                <a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0">2</a>
+                                            </li>
+                                            <li class="paginate_button ">
+                                                <a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0">3</a>
+                                            </li>
+                                            <li class="paginate_button ">
+                                                <a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0">4</a>
+                                            </li>
+                                            <li class="paginate_button ">
+                                                <a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0">5</a>
+                                            </li>
+                                            <li class="paginate_button ">
+                                                <a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0">6</a>
+                                            </li>
+                                            <li class="paginate_button next" id="example2_next">
+                                                <a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0">Next</a>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body" style="">
-                                        <div class="col-xs-1"></div>
-                                        <!-- somehow the button below only work when the div above is in place -->
-                                        <div class="col-xs-12">
-                                            <h5>Play Sample Answer</h5>
-                                            <div class="row is-table-row">
-                                                <div id="question-play-button" class="col-xs-4 col-sm-2 col-md-2 col-lg-1"><a
-                                                        class="btn btn-app"><i class="fa fa-play"></i> Play</a></div>
-                                                <div id="question-step-backward-button" class="col-xs-4 col-sm-2 col-md-2 col-lg-1"><a
-                                                        class="btn btn-app"><i class="fa fa-step-backward"></i> Reset</a></div>
-                                                <div class="hidden-xs hidden-sm hidden-md col-lg-1"></div>
-                                                <div id="question-audio-play" class="hidden-xs col-sm-4 col-md-6 col-lg-7"></div>
-                                                <div id="question-tracktime" class="col-xs-2 col-sm-4 col-md-2 col-lg-2"
-                                                    style="margin-top:20px"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.box-body -->
                                 </div>
                             </div>
                         </div>
-                        <!-- ./row -->
-                        <div class="pull-left">
-                            <button type="button" class="btn btn-warning glyphicon glyphicon-menu-left">
-                            </button>
-                        </div>
-                        <div class="pull-right">
-                            <button type="button" class="btn btn-warning glyphicon glyphicon-menu-right">
-                            </button>
-                        </div>
-                        <!-- ./box-body -->
-                        <!-- ./box -->
+                        <!-- ./col-xs-12  -->
                     </div>
-                    <!-- ./col-xs-12  -->
                 </div>
             </div>
-        </div>
-        <!-- ./row -->
+            <!-- ./row -->
     </section>
 </div>
 <!-- /.content -->

@@ -14,7 +14,9 @@ class practisecontroller extends Controller
     {
         $data['session'] = $request->session();
         $data['adminuser'] = 'student';
-        $table = DB::select('select * from rainfo order by createDate');
+        $table =  SelectWholeTable('rainfo','createDate');
+        $data['title'] = "Read Aloud Question List";
+        
         $data['question'] = array(
             'ID' => 1,
             'Title' => 'THIS SHOULD BE A TITLE',
@@ -33,7 +35,7 @@ class practisecontroller extends Controller
         );
         return view('practise/s_ra_table', $data);
     }
-    function s_ra()
+    function s_ra(Request $request)
     {
         $data['session'] = $request->session();
         $data['adminuser'] = 'student';
@@ -53,7 +55,7 @@ class practisecontroller extends Controller
             'Content' => "Domestication is an evolutionary, rather than a political, development. It is certainly not a regime humans imposed on animals some 10,000 years ago. Rather, domestication happened when a small handful of especially opportunistic species discovered through Darwinian trial and error that they were more likely to survive and prosper in an alliance with humans than on their own. ",
             
         );
-        return view('practise/s_ra_table', $data);
+        return view('practise/s_ra', $data);
     }
     function s_ra_question()
     {
