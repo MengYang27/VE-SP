@@ -47,9 +47,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $currentQuestion->sampleAnswerAudioPath3 = $_POST['sampleAnswerAudioPath3'];
   $currentQuestion->wordCount = $_POST["wordCount"];
   $currentQuestion->inputUser = $session->get('userId');
-  $audioPaths_array = string_to_array(",", $infoFromDB[0][11]);
+  $audioPaths_array = string_to_array(",", $infoFromDB[0][13]);
   // var_dump($audioPaths_array);
-  // var_dump($currentQuestion->sampleAnswerAudioPath);
+//   var_dump($_POST);
+//   var_dump($currentQuestion->sampleAnswerAudioPath);
+//   var_dump($currentQuestion->sampleAnswerAudioPath);
+//   var_dump($currentQuestion->sampleAnswerAudioPath);
+
   if (array_key_exists(0, $audioPaths_array) && $audioPaths_array[0] !== '' && $currentQuestion->sampleAnswerAudioPath == '') { unlink($audioPaths_array[0]); }
   if (array_key_exists(1, $audioPaths_array) &&  $audioPaths_array[1] !== '' && $currentQuestion->sampleAnswerAudioPath2 == '') { unlink($audioPaths_array[1]); }
   if (array_key_exists(2, $audioPaths_array) &&  $audioPaths_array[2] !== '' && $currentQuestion->sampleAnswerAudioPath3 == '') { unlink($audioPaths_array[2]); }
@@ -62,10 +66,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // var_dump($currentQuestion);
 
-  // // for debugging please comment out the header and exit lines.
+//   // // for debugging please comment out the header and exit lines.
   header('content-type:text/html;charset=uft-8');
   // 重定向页面
-  header('location:/questionmgt/speaking?updates=1');
+  header('location:/questionmgt/speaking?updates=1&rid=2');
   exit();
 }
 
@@ -82,11 +86,13 @@ $currentQuestion->isnew = $infoFromDB[0][4];
 $currentQuestion->isjj = $infoFromDB[0][5];
 $currentQuestion->publishdate = $infoFromDB[0][6];
 $currentQuestion->updatedate = date("Y-m-d H:i:s");
-$currentQuestion->content = $infoFromDB[0][14];
-$currentQuestion->comment = $infoFromDB[0][16];
+$currentQuestion->content = $infoFromDB[0][17];
+$currentQuestion->comment = $infoFromDB[0][19];
 $currentQuestion->categories = $infoFromDB[0][8];
 $currentQuestion->categories_array = string_to_array(",", $currentQuestion->categories);
-$currentQuestion->audioPaths = $infoFromDB[0][11];
+$currentQuestion->audioPaths = $infoFromDB[0][13];
+$currentQuestion->wordCount = $infoFromDB[0][18];
+$currentQuestion->inputUser = $session->get('userId');
 // var_dump($currentQuestion->audioPaths);
 $audioPaths_array = string_to_array(",", $currentQuestion->audioPaths);
 $currentQuestion->sampleAnswerAudioPath = array_key_exists(0, $audioPaths_array) ? $audioPaths_array[0] : '';
@@ -100,7 +106,8 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
 // echo(array_key_exists(2, $audioPaths_array));
 // var_dump($_POST);
 // var_dump($infoFromDB);
-var_dump($currentQuestion);
+// echo "<br/>"."question"."<br/>";
+// var_dump($currentQuestion);
 
 ?>
 
@@ -150,7 +157,7 @@ var_dump($currentQuestion);
     // var_dump($_POST);
   ?>
 
-    <div class="container">
+    <div class="content">
         <ul class="nav nav-tabs">
             <li role="presentation" class="active"><a href="#">Velocity English - Repeat Sentence</a></li>
             <!-- <li role="presentation"><a href="#"></a></li> -->
@@ -290,7 +297,7 @@ var_dump($currentQuestion);
         </form>
 
     </div>
-    {{-- .container --}}
+    {{-- content --}}
 
 </div>
 @endsection

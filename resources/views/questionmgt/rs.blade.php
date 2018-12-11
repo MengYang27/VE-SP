@@ -42,7 +42,7 @@
     }
     ?>
 
-    <div class="container">
+    <div class="content">
         <ul class="nav nav-tabs">
             <li role="presentation" class="active"><a href="#">Velocity English - Repeat Sentence</a></li>
             <!-- <li role="presentation"><a href="#"></a></li> -->

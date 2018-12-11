@@ -3,15 +3,17 @@
 
      function OpenConn()
      {
-        //  $conn = new mysqli('localhost', 'debian-sys-maint', 'vjS03YXDS1PihtX8', 've_test', '33060');
+         $conn = new mysqli('localhost', 'debian-sys-maint', 'vjS03YXDS1PihtX8', 've_test', '33060');
          // $conn= new mysqli("localhost","root","123456","ve_test");
          // $conn = new mysqli("localhost", "homestead", "secret", "at2l5loc_velocity", "33060");
          //  return $conn;
-         // $conn = new mysqli("localhost", "debian-sys-maint", "vjS03YXDS1PihtX8", "ve_test", "33060");
+         //  $conn = new mysqli("localhost", "debian-sys-maint", "vjS03YXDS1PihtX8", "ve_test", "33060");
          // $conn= new mysqli("localhost","root","123456","ve_test");
          // $conn = new mysqli("localhost", "homestead", "secret", "at2l5loc_velocity", "33060");
          // LAN CONNTECTION - COMMENT OUT WHEN CHANGED
           $conn = new mysqli('127.0.0.1', 'root', 'root', 've_test', '3306');
+
+
 
          return $conn;
      }
