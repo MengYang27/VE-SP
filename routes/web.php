@@ -273,7 +273,7 @@ Route::get('/locationedit/{locationid}', 'admincontroller@locationDataUpdate')->
 
 /* Speaking */
 Route::get('/questionmgt/speaking', 'questioncontroller@show')->name('questionmgt');
-Route::get('/questionmgt/questiondata', 'questioncontroller@questionData')->name('questiondata');
+Route::get('/questionmgt/questiondata', 'questioncontroller@questionData')->name('questionData');
 // Ra
 Route::get('/questionmgt/speaking/ra', 'questioncontroller@newRa')->name('newRa');
 Route::post('/questionmgt/speaking/ra', 'questioncontroller@newRa')->name('newRaPost');
@@ -286,19 +286,8 @@ Route::get('/questionmgt/speaking/rs_update', 'questioncontroller@rsUpdate')->na
 Route::post('/questionmgt/speaking/rs_update', 'questioncontroller@rsUpdate')->name('rsUpdatePost');
 
 /* For all question deletion */
-Route::post('/questionmgt/question_deletion', 'questioncontroller@questionDeletion')->name('AllQuestionDeletion');
-// Route::get('/questionmgt/audio/{songPath}', [
-//     'as' => 'audio',
-//     'uses' => 'questioncontroller@getSong'
-// ]);
-// test page
-Route::get('/questionmgt/test', 'questioncontroller@test');
+Route::post('/questionmgt/question_deletion', 'questioncontroller@questionDeletion')->name('questionDeletion');
 
-/*
-Route::get('/home', function () {
-    return view('home');
-});
-*/
 // test page
 Route::get('/questionmgt/test', 'questioncontroller@test');
 

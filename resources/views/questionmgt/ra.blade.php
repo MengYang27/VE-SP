@@ -269,7 +269,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // insert the record to database
     $currentQuestion->insertMe();
     // transfer data to the standard location
-    move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $currentQuestion->sampleAnswerAudioPath);
+
+    if (!empty($file_type)) { 
+      move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $currentQuestion->sampleAnswerAudioPath);
+    }
     if (!empty($file_type2)) { 
       move_uploaded_file($_FILES['uploadedfile2']['tmp_name'], $currentQuestion->sampleAnswerAudioPath2);
     }

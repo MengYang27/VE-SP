@@ -90,7 +90,7 @@
       </div>
     </div>
 
-    <div id="test"></div>
+    <div id="test"><?php #var_dump($_GET); ?></div>
 
     <!-- .container -->
   </div>
