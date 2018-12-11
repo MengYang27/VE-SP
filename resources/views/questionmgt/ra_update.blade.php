@@ -147,7 +147,7 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
     // var_dump($_POST);
   ?>
 
-  <div class="content">
+  <section class="content container-fluid">
 
     {{-- content here --}}
     <ul class="nav nav-tabs">
@@ -160,7 +160,7 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
       onkeydown="if(event.target.nodeName !== 'TEXTAREA' && event.keyCode==13){return false;}">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-      <div class="row" style="min-height: 135px;">
+      <div style="min-height: 135px;">
         <div class="form-group col-md-6" style="padding-right: 10px; margin:0;">
           <label for="title">Title</label>
           <input style="max-width: 400px;" type="text" name="title" class="form-control" id="title" placeholder="Question Title ..."
@@ -206,7 +206,7 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
         <!-- .row -->
       </div>
 
-      <div class="row">
+      <div >
         <div class="form-group col-md-2">
           <label for="exampleFormControlSelect1">Upload Question Audio 1</label>
           <label class="btn btn-default" style="display:block" for="my-file-selector">
@@ -281,7 +281,7 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
 
 
 
-      <div class="row" style="display:none">
+      <div  style="display:none">
         <div class="col-sm-3 col-md-3" style="padding: 0px">
           <label for="select-group" style="color: lightgrey;">Categories</label>
           <div class="select-group">
@@ -331,7 +331,7 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
         <input type="hidden" id="sampleAnswerAudioPath3" name="sampleAnswerAudioPath3" value="<?php echo $currentQuestion->sampleAnswerAudioPath3; ?>" />
       </div>
 
-      <div class="row">
+      <div >
         <div class="form-group col-md-8">
           <label for="content">Question Script</label>
           <textarea name="content" class="form-control" id="content" rows="10"><?php echo $currentQuestion->content; ?></textarea>
@@ -354,7 +354,7 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
 
 
     <!-- .content -->
-  </div>
+  </section>
 
 </div>
 

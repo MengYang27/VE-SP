@@ -157,146 +157,150 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
     // var_dump($_POST);
   ?>
 
-    <div class="content">
-        <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#">Velocity English - Repeat Sentence</a></li>
-            <!-- <li role="presentation"><a href="#"></a></li> -->
-        </ul>
-        <!-- The content of the document...... -->
-        <form id="form" method="post" action="{{ url('/questionmgt/speaking/rs_update') }}" enctype="multipart/form-data"
-            onkeydown="if(event.target.nodeName !== 'TEXTAREA' &&
+    <section class="content container-fluid">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#">Velocity English - Repeat Sentence</a></li>
+                <!-- <li role="presentation"><a href="#"></a></li> -->
+            </ul>
+            <!-- The content of the document...... -->
+            <form id="form" method="post" action="{{ url('/questionmgt/speaking/rs_update') }}" enctype="multipart/form-data"
+                onkeydown="if(event.target.nodeName !== 'TEXTAREA' &&
             event.keyCode==13){return false;}">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <!-- <div class="alert alert-info" id="alertboard" role="alert">Velocity English - Read Aloud</div> -->
-            </div>
-            <div class="row" style="min-height: 135px;">
-                <div class="form-group col-md-6" style="padding-right: 10px; margin:0;">
-                    <label for="title">Title</label>
-                    <input style="max-width: 400px;" type="text" name="title" class="form-control" id="title"
-                        placeholder="Question Title ..." value="<?php echo $currentQuestion->title; ?>">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <!-- <div class="alert alert-info" id="alertboard" role="alert">Velocity English - Read Aloud</div> -->
+                </div>
+                <div  style="min-height: 135px;">
+                    <div class="form-group col-md-6" style="padding-right: 10px; margin:0;">
+                        <label for="title">Title</label>
+                        <input style="max-width: 400px;" type="text" name="title" class="form-control" id="title"
+                            placeholder="Question Title ..." value="<?php echo $currentQuestion->title; ?>">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label class="form-check-label" for="isfrequent">
+                            Frequent
+                        </label>
+                        <input name="isfrequent" class="form-check-input" type="checkbox" value="1" id="isfrequent"
+                            <?php echo ($currentQuestion->isfrequent !== '0' ? 'checked' : ''); ?> >
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label class="form-check-label" for="isnew">
+                            New
+                        </label>
+                        <input name="isnew" class="form-check-input" type="checkbox" value="1" id="isnew" <?php echo
+                            ($currentQuestion->isnew !== '0' ? 'checked' : ''); ?> >
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label class="form-check-label" for="isjj">
+                            Is JiJing
+                        </label>
+                        <input name="isjj" class="form-check-input" type="checkbox" value="1" id="isjj" <?php echo
+                            ($currentQuestion->isjj !== '0' ? 'checked' : ''); ?> >
+                    </div>
+
+
+                    <div class="form-group col-md-2">
+                        <label for="difficulty">Difficulty</label>
+                        <select name="difficulty" class="form-control" id="difficulty">
+                            <option value="0" <?php echo ($currentQuestion->difficulty == '0' ? 'selected' : ''); ?>>No
+                                Input</option>
+                            <option value="1" <?php echo ($currentQuestion->difficulty == '1' ? 'selected' : '');
+                                ?>>Very
+                                Easy</option>
+                            <option value="2" <?php echo ($currentQuestion->difficulty == '2' ? 'selected' : '');
+                                ?>>Easy</option>
+                            <option value="3" <?php echo ($currentQuestion->difficulty == '3' ? 'selected' : '');
+                                ?>>Medium</option>
+                            <option value="4" <?php echo ($currentQuestion->difficulty == '4' ? 'selected' : '');
+                                ?>>Hard</option>
+                            <option value="5" <?php echo ($currentQuestion->difficulty == '5' ? 'selected' : '');
+                                ?>>Very
+                                Hard</option>
+                        </select>
+                    </div>
+                    <!-- .row -->
                 </div>
 
-                <div class="form-group col-md-2">
-                    <label class="form-check-label" for="isfrequent">
-                        Frequent
-                    </label>
-                    <input name="isfrequent" class="form-check-input" type="checkbox" value="1" id="isfrequent" <?php
-                        echo ($currentQuestion->isfrequent !== '0' ? 'checked' : ''); ?> >
-                </div>
+                <div >
+                    <div class="form-group col-md-2">
+                        <label for="exampleFormControlSelect1">Upload Question Audio 1</label>
+                        <label class="btn btn-default" style="display:block" for="my-file-selector">
+                            Upload File Here
+                        </label>
+                        <input name="uploadedfile" id="my-file-selector" type="file" style="display:none" />
+                    </div>
 
-                <div class="form-group col-md-2">
-                    <label class="form-check-label" for="isnew">
-                        New
-                    </label>
-                    <input name="isnew" class="form-check-input" type="checkbox" value="1" id="isnew" <?php echo
-                        ($currentQuestion->isnew !== '0' ? 'checked' : ''); ?> >
-                </div>
+                    <div class="form-group col-md-2">
+                        <label for="exampleFormControlSelect2">Upload Question Audio 2</label>
+                        <label class="btn btn-default" style="display:block" for="my-file-selector2">
+                            Upload File Here
+                        </label>
+                        <input name="uploadedfile2" id="my-file-selector2" type="file" style="display:none" />
+                    </div>
 
-                <div class="form-group col-md-2">
-                    <label class="form-check-label" for="isjj">
-                        Is JiJing
-                    </label>
-                    <input name="isjj" class="form-check-input" type="checkbox" value="1" id="isjj" <?php echo
-                        ($currentQuestion->isjj !== '0' ? 'checked' : ''); ?> >
-                </div>
+                    <div class="form-group col-md-2">
+                        <label for="exampleFormControlSelect3">Upload Question Audio 3</label>
+                        <label class="btn btn-default" style="display:block" for="my-file-selector3">
+                            Upload File Here
+                        </label>
+                        <input name="uploadedfile3" id="my-file-selector3" type="file" style="display:none" />
+                    </div>
 
 
-                <div class="form-group col-md-2">
-                    <label for="difficulty">Difficulty</label>
-                    <select name="difficulty" class="form-control" id="difficulty">
-                        <option value="0" <?php echo ($currentQuestion->difficulty == '0' ? 'selected' : ''); ?>>No
-                            Input</option>
-                        <option value="1" <?php echo ($currentQuestion->difficulty == '1' ? 'selected' : ''); ?>>Very
-                            Easy</option>
-                        <option value="2" <?php echo ($currentQuestion->difficulty == '2' ? 'selected' : ''); ?>>Easy</option>
-                        <option value="3" <?php echo ($currentQuestion->difficulty == '3' ? 'selected' : ''); ?>>Medium</option>
-                        <option value="4" <?php echo ($currentQuestion->difficulty == '4' ? 'selected' : ''); ?>>Hard</option>
-                        <option value="5" <?php echo ($currentQuestion->difficulty == '5' ? 'selected' : ''); ?>>Very
-                            Hard</option>
-                    </select>
-                </div>
-                <!-- .row -->
-            </div>
+                    <div class="form-group col-md-2">
+                        <label for="upload-file-info">Question Audio File 1:</label>
+                        <span class='label label-info' id="upload-file-info">
+                            <?php echo '' !== $currentQuestion->sampleAnswerAudioPath ? extractDateFromFN($currentQuestion->sampleAnswerAudioPath).' Uploaded' : null; ?></span><i
+                            id="delete1" class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+                    </div>
 
-            <div class="row">
-                <div class="form-group col-md-2">
-                    <label for="exampleFormControlSelect1">Upload Question Audio 1</label>
-                    <label class="btn btn-default" style="display:block" for="my-file-selector">
-                        Upload File Here
-                    </label>
-                    <input name="uploadedfile" id="my-file-selector" type="file" style="display:none" />
-                </div>
+                    <div class="form-group col-md-2">
+                        <label for="upload-file-info2">Question Audio File 2:</label>
+                        <span class='label label-info' id="upload-file-info2">
+                            <?php echo '' !== $currentQuestion->sampleAnswerAudioPath2 ? extractDateFromFN($currentQuestion->sampleAnswerAudioPath2).' Uploaded' : null; ?></span><i
+                            id="delete2" class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+                    </div>
 
-                <div class="form-group col-md-2">
-                    <label for="exampleFormControlSelect2">Upload Question Audio 2</label>
-                    <label class="btn btn-default" style="display:block" for="my-file-selector2">
-                        Upload File Here
-                    </label>
-                    <input name="uploadedfile2" id="my-file-selector2" type="file" style="display:none" />
-                </div>
-
-                <div class="form-group col-md-2">
-                    <label for="exampleFormControlSelect3">Upload Question Audio 3</label>
-                    <label class="btn btn-default" style="display:block" for="my-file-selector3">
-                        Upload File Here
-                    </label>
-                    <input name="uploadedfile3" id="my-file-selector3" type="file" style="display:none" />
+                    <div class="form-group col-md-2">
+                        <label for="upload-file-info3">Question Audio File 3:</label>
+                        <span class='label label-info' id="upload-file-info3">
+                            <?php echo '' !== $currentQuestion->sampleAnswerAudioPath3 ? extractDateFromFN($currentQuestion->sampleAnswerAudioPath3).' Uploaded' : null; ?></span><i
+                            id="delete3" class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+                    </div>
                 </div>
 
 
-                <div class="form-group col-md-2">
-                    <label for="upload-file-info">Question Audio File 1:</label>
-                    <span class='label label-info' id="upload-file-info">
-                        <?php echo '' !== $currentQuestion->sampleAnswerAudioPath ? extractDateFromFN($currentQuestion->sampleAnswerAudioPath).' Uploaded' : null; ?></span><i
-                        id="delete1" class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+
+                <div id="hidden_categories"></div>
+                <input type="hidden" name="publishDate" value="<?php echo $currentQuestion->publishdate; ?>" />
+                <input type="hidden" name="currentID" value="<?php echo $currentQuestion->currentID; ?>" />
+                <input type="hidden" id="sampleAnswerAudioPath" name="sampleAnswerAudioPath" value="<?php echo $currentQuestion->sampleAnswerAudioPath; ?>" />
+                <input type="hidden" id="sampleAnswerAudioPath2" name="sampleAnswerAudioPath2" value="<?php echo $currentQuestion->sampleAnswerAudioPath2; ?>" />
+                <input type="hidden" id="sampleAnswerAudioPath3" name="sampleAnswerAudioPath3" value="<?php echo $currentQuestion->sampleAnswerAudioPath3; ?>" />
+
+                <div >
+                    <div class="form-group col-md-8">
+                        <label for="content">Answer Script</label>
+                        <textarea name="content" class="form-control" id="content" rows="10"><?php echo $currentQuestion->content; ?></textarea>
+                        <div id="word-count"></div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="content">Comment</label>
+                        <textarea name="comment" class="form-control" id="comment" rows="10"><?php echo $currentQuestion->comment; ?></textarea>
+                    </div>
                 </div>
 
-                <div class="form-group col-md-2">
-                    <label for="upload-file-info2">Question Audio File 2:</label>
-                    <span class='label label-info' id="upload-file-info2">
-                        <?php echo '' !== $currentQuestion->sampleAnswerAudioPath2 ? extractDateFromFN($currentQuestion->sampleAnswerAudioPath2).' Uploaded' : null; ?></span><i
-                        id="delete2" class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+                <div class="row">
+                    <button id="back-button" class="btn btn-primary pull-left" type="button">Back</button>
+                    <?php if (!isset($_GET['view'])) {echo '<button id="submit-button" class="btn btn-primary pull-right" type="submit">Submit</button>';} ?>
                 </div>
 
-                <div class="form-group col-md-2">
-                    <label for="upload-file-info3">Question Audio File 3:</label>
-                    <span class='label label-info' id="upload-file-info3">
-                        <?php echo '' !== $currentQuestion->sampleAnswerAudioPath3 ? extractDateFromFN($currentQuestion->sampleAnswerAudioPath3).' Uploaded' : null; ?></span><i
-                        id="delete3" class="glyphicon glyphicon-trash" aria-hidden="true"></i>
-                </div>
-            </div>
-
-
-
-            <div id="hidden_categories"></div>
-            <input type="hidden" name="publishDate" value="<?php echo $currentQuestion->publishdate; ?>" />
-            <input type="hidden" name="currentID" value="<?php echo $currentQuestion->currentID; ?>" />
-            <input type="hidden" id="sampleAnswerAudioPath" name="sampleAnswerAudioPath" value="<?php echo $currentQuestion->sampleAnswerAudioPath; ?>" />
-            <input type="hidden" id="sampleAnswerAudioPath2" name="sampleAnswerAudioPath2" value="<?php echo $currentQuestion->sampleAnswerAudioPath2; ?>" />
-            <input type="hidden" id="sampleAnswerAudioPath3" name="sampleAnswerAudioPath3" value="<?php echo $currentQuestion->sampleAnswerAudioPath3; ?>" />
-
-            <div class="row">
-                <div class="form-group col-md-8">
-                    <label for="content">Answer Script</label>
-                    <textarea name="content" class="form-control" id="content" rows="10"><?php echo $currentQuestion->content; ?></textarea>
-                    <div id="word-count"></div>
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="content">Comment</label>
-                    <textarea name="comment" class="form-control" id="comment" rows="10"><?php echo $currentQuestion->comment; ?></textarea>
-                </div>
-            </div>
-
-            <div class="row">
-                <button id="back-button" class="btn btn-primary pull-left" type="button">Back</button>
-                <?php if (!isset($_GET['view'])) {echo '<button id="submit-button" class="btn btn-primary pull-right" type="submit">Submit</button>';} ?>
-            </div>
-
-            <input type="hidden" id="wordCount" name="wordCount" value="0">
-        </form>
-
-    </div>
+                <input type="hidden" id="wordCount" name="wordCount" value="0">
+            </form>
+    </section>
     {{-- content --}}
 
 </div>

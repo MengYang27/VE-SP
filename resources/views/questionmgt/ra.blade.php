@@ -47,113 +47,112 @@
     $updates = 0;
   ?>
 
-  <div class="content">
+  <section class="content container-fluid">
 
     {{-- content here --}}
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#">Velocity English - Read Aloud</a></li>
+        <!-- <li role="presentation"><a href="#"></a></li> -->
+      </ul>
 
-    <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="#">Velocity English - Read Aloud</a></li>
-      <!-- <li role="presentation"><a href="#"></a></li> -->
-    </ul>
+      <form id="form" method="post" action="{{ url('/questionmgt/speaking/ra?updates='.$updates) }}" enctype="multipart/form-data"
+        onkeydown="if(event.target.nodeName !== 'TEXTAREA' && event.keyCode==13){return false;}">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-    <form id="form" method="post" action="{{ url('/questionmgt/speaking/ra?updates='.$updates) }}" enctype="multipart/form-data"
-      onkeydown="if(event.target.nodeName !== 'TEXTAREA' && event.keyCode==13){return false;}">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <div  style="min-height: 135px;">
+          <div class="form-group col-md-6" style="padding-right: 10px; margin:0;">
+            <label for="title">Title</label>
+            <input style="max-width: 400px;" type="text" name="title" class="form-control" id="title" placeholder="Question Title ...">
+          </div>
 
-      <div class="row" style="min-height: 135px;">
-        <div class="form-group col-md-6" style="padding-right: 10px; margin:0;">
-          <label for="title">Title</label>
-          <input style="max-width: 400px;" type="text" name="title" class="form-control" id="title" placeholder="Question Title ...">
+          <div class="form-group col-md-2">
+            <label class="form-check-label" for="isfrequent">
+              Frequent
+            </label>
+            <input name="isfrequent" class="form-check-input" type="checkbox" value="1" id="isfrequent">
+          </div>
+
+          <div class="form-group col-md-2">
+            <label class="form-check-label" for="isnew">
+              New
+            </label>
+            <input name="isnew" class="form-check-input" type="checkbox" value="1" id="isnew">
+          </div>
+
+          <div class="form-group col-md-2">
+            <label class="form-check-label" for="isjj">
+              Is JiJing (机经)
+            </label>
+            <input name="isjj" class="form-check-input" type="checkbox" value="1" id="isjj">
+          </div>
+
+
+          <div class="form-group col-md-2">
+            <label for="difficulty">Difficulty</label>
+            <select name="difficulty" class="form-control" id="difficulty">
+              <option value="0">No Input</option>
+              <option value="1">Very Easy</option>
+              <option value="2">Easy</option>
+              <option value="3">Medium</option>
+              <option value="4">Hard</option>
+              <option value="5">Very Hard</option>
+            </select>
+          </div>
+
+          <!-- .row -->
         </div>
 
-        <div class="form-group col-md-2">
-          <label class="form-check-label" for="isfrequent">
-            Frequent
-          </label>
-          <input name="isfrequent" class="form-check-input" type="checkbox" value="1" id="isfrequent">
+        <div >
+          <div class="form-group col-md-2">
+            <label for="exampleFormControlSelect1">Upload Question Audio 1</label>
+            <label class="btn btn-default" style="display:block" for="my-file-selector">
+              Upload File Here
+            </label>
+            <input name="uploadedfile" id="my-file-selector" type="file" style="display:none" />
+          </div>
+
+          <div class="form-group col-md-2">
+            <label for="exampleFormControlSelect2">Upload Question Audio 2</label>
+            <label class="btn btn-default" style="display:block" for="my-file-selector2">
+              Upload File Here
+            </label>
+            <input name="uploadedfile2" id="my-file-selector2" type="file" style="display:none" />
+          </div>
+
+          <div class="form-group col-md-2">
+            <label for="exampleFormControlSelect3">Upload Question Audio 3</label>
+            <label class="btn btn-default" style="display:block" for="my-file-selector3">
+              Upload File Here
+            </label>
+            <input name="uploadedfile3" id="my-file-selector3" type="file" style="display:none" />
+          </div>
+
+
+          <div class="form-group col-md-2">
+            <label for="upload-file-info">Question Audio File 1:</label>
+            <span class='label label-info' id="upload-file-info"></span><i id="delete1" class="glyphicon glyphicon-trash"
+              aria-hidden="true"></i>
+          </div>
+
+          <div class="form-group col-md-2">
+            <label for="upload-file-info2">Question Audio File 2:</label>
+            <span class='label label-info' id="upload-file-info2"></span><i id="delete2" class="glyphicon glyphicon-trash"
+              aria-hidden="true"></i>
+          </div>
+
+          <div class="form-group col-md-2">
+            <label for="upload-file-info3">Question Audio File 3:</label>
+            <span class='label label-info' id="upload-file-info3"></span><i id="delete3" class="glyphicon glyphicon-trash"
+              aria-hidden="true"></i>
+          </div>
         </div>
 
-        <div class="form-group col-md-2">
-          <label class="form-check-label" for="isnew">
-            New
-          </label>
-          <input name="isnew" class="form-check-input" type="checkbox" value="1" id="isnew">
-        </div>
-
-        <div class="form-group col-md-2">
-          <label class="form-check-label" for="isjj">
-            Is JiJing (机经)
-          </label>
-          <input name="isjj" class="form-check-input" type="checkbox" value="1" id="isjj">
-        </div>
-
-
-        <div class="form-group col-md-2">
-          <label for="difficulty">Difficulty</label>
-          <select name="difficulty" class="form-control" id="difficulty">
-            <option value="0">No Input</option>
-            <option value="1">Very Easy</option>
-            <option value="2">Easy</option>
-            <option value="3">Medium</option>
-            <option value="4">Hard</option>
-            <option value="5">Very Hard</option>
-          </select>
-        </div>
-
-        <!-- .row -->
-      </div>
-
-      <div class="row">
-        <div class="form-group col-md-2">
-          <label for="exampleFormControlSelect1">Upload Question Audio 1</label>
-          <label class="btn btn-default" style="display:block" for="my-file-selector">
-            Upload File Here
-          </label>
-          <input name="uploadedfile" id="my-file-selector" type="file" style="display:none" />
-        </div>
-
-        <div class="form-group col-md-2">
-          <label for="exampleFormControlSelect2">Upload Question Audio 2</label>
-          <label class="btn btn-default" style="display:block" for="my-file-selector2">
-            Upload File Here
-          </label>
-          <input name="uploadedfile2" id="my-file-selector2" type="file" style="display:none" />
-        </div>
-
-        <div class="form-group col-md-2">
-          <label for="exampleFormControlSelect3">Upload Question Audio 3</label>
-          <label class="btn btn-default" style="display:block" for="my-file-selector3">
-            Upload File Here
-          </label>
-          <input name="uploadedfile3" id="my-file-selector3" type="file" style="display:none" />
-        </div>
-
-
-        <div class="form-group col-md-2">
-          <label for="upload-file-info">Question Audio File 1:</label>
-          <span class='label label-info' id="upload-file-info"></span><i id="delete1" class="glyphicon glyphicon-trash"
-            aria-hidden="true"></i>
-        </div>
-
-        <div class="form-group col-md-2">
-          <label for="upload-file-info2">Question Audio File 2:</label>
-          <span class='label label-info' id="upload-file-info2"></span><i id="delete2" class="glyphicon glyphicon-trash"
-            aria-hidden="true"></i>
-        </div>
-
-        <div class="form-group col-md-2">
-          <label for="upload-file-info3">Question Audio File 3:</label>
-          <span class='label label-info' id="upload-file-info3"></span><i id="delete3" class="glyphicon glyphicon-trash"
-            aria-hidden="true"></i>
-        </div>
-      </div>
-
-      <div class="row" style="display: none">
-        <div class="col-sm-3 col-md-3" style="padding: 0px">
-          <label for="select-group" style="color: lightgrey;">Categories</label>
-          <div class="select-group">
-            <select id="categories_primary" class="custom-select" size="12" onchange="showSite(this.value)" multiple>
-              <?php
+        <div  style="display: none">
+          <div class="col-sm-3 col-md-3" style="padding: 0px">
+            <label for="select-group" style="color: lightgrey;">Categories</label>
+            <div class="select-group">
+              <select id="categories_primary" class="custom-select" size="12" onchange="showSite(this.value)" multiple>
+                <?php
     // require_once 'categories.php';
 
     // // Sample:
@@ -162,54 +161,54 @@
     //   echo '<option value="' . $category_id . '">' . $categories[$category_id] . '</option>';
     // }
     ?>
-            </select>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="col-sm-4 col-md-4">
+            <label for="sortable1" style="color: lightgrey;">Secondary Categories</label>
+            <ul id="sortable1" class="connectedSortable">
+              <!-- <li class="ui-state-default">Item 5</li> -->
+            </ul>
+          </div>
+
+          <div class="col-sm-4 col-md-4">
+            <label for="sortable2">Your tag outputs</label>
+            <ul id="sortable2" class="connectedSortable">
+            </ul>
+          </div>
+
+          <div id="hidden_categories">
+          </div>
+
+        </div>
+
+
+        <div >
+          <div class="form-group col-md-8">
+            <label for="content">Question Script</label>
+            <textarea name="content" class="form-control" id="content" rows="10"></textarea>
+            <div id="word-count"></div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="content">Comment</label>
+            <textarea name="comment" class="form-control" id="comment" rows="10"></textarea>
           </div>
         </div>
 
 
-        <div class="col-sm-4 col-md-4">
-          <label for="sortable1" style="color: lightgrey;">Secondary Categories</label>
-          <ul id="sortable1" class="connectedSortable">
-            <!-- <li class="ui-state-default">Item 5</li> -->
-          </ul>
+        <div class="row">
+          <button id="back-button" class="btn btn-primary pull-left" type="button">Back</button>
+          <button id="submit-button" class="btn btn-primary pull-right" type="submit">Submit</button>
         </div>
 
-        <div class="col-sm-4 col-md-4">
-          <label for="sortable2">Your tag outputs</label>
-          <ul id="sortable2" class="connectedSortable">
-          </ul>
-        </div>
-
-        <div id="hidden_categories">
-        </div>
-
-      </div>
+        <input type="hidden" id="wordCount" name="wordCount" value="0">
+      </form>
 
 
-      <div class="row">
-        <div class="form-group col-md-8">
-          <label for="content">Question Script</label>
-          <textarea name="content" class="form-control" id="content" rows="10"></textarea>
-          <div id="word-count"></div>
-        </div>
-
-        <div class="form-group col-md-4">
-          <label for="content">Comment</label>
-          <textarea name="comment" class="form-control" id="comment" rows="10"></textarea>
-        </div>
-      </div>
-
-
-      <div class="row">
-        <button id="back-button" class="btn btn-primary pull-left" type="button">Back</button>
-        <button id="submit-button" class="btn btn-primary pull-right" type="submit">Submit</button>
-      </div>
-
-      <input type="hidden" id="wordCount" name="wordCount" value="0">
-    </form>
-
-
-    <?php
+      <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // *****************************
   // ***** ADDING NEW RECORD *****
@@ -282,9 +281,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-
+</section>
     <!-- .content -->
-  </div>
 
 </div>
 

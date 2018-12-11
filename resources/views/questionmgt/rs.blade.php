@@ -42,7 +42,7 @@
     }
     ?>
 
-    <div class="content">
+    <section class="content container-fluid">
         <ul class="nav nav-tabs">
             <li role="presentation" class="active"><a href="#">Velocity English - Repeat Sentence</a></li>
             <!-- <li role="presentation"><a href="#"></a></li> -->
@@ -56,7 +56,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <!-- <div class="alert alert-info" id="alertboard" role="alert">Velocity English - Read Aloud</div> -->
             </div>
-            <div class="row" style="min-height: 135px;">
+            <div  style="min-height: 135px;">
                 <div class="form-group col-md-6" style="padding-right: 10px; margin:0;">
                     <label for="title">Title</label>
                     <input style="max-width: 400px;" type="text" name="title" class="form-control" id="title"
@@ -100,7 +100,7 @@
                 <!-- .row -->
             </div>
 
-            <div class="row">
+            <div >
                 <div class="form-group col-md-2">
                     <label for="exampleFormControlSelect1">Upload Question Audio 1</label>
                     <label class="btn btn-default" style="display:block" for="my-file-selector">
@@ -146,7 +146,7 @@
             </div>
 
 
-            <div class="row">
+            <div >
                 <div class="form-group col-md-8">
                     <label for="content">Answer Script</label>
                     <textarea name="content" class="form-control" id="content" rows="10"></textarea>
@@ -169,7 +169,7 @@
 
         </form>
 
-        <div class="row">
+        <div >
             <?php
         // var_dump($_POST);
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -243,7 +243,7 @@
         ?>
         </div>
 
-    </div>
+    </section>
 
 </div>
 
