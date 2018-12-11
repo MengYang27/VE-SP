@@ -35,7 +35,7 @@
 
   ?>
 
-  <div class="content">
+  <section class="content container-fluid">
 
     <?php
   // notification for after updating a record.
@@ -91,10 +91,11 @@
     </div>
 
     <div id="test"><?php #var_dump($_GET); ?></div>
-
-    <!-- .content -->
   </div>
 
+
+</section>
+{{-- .content --}}
 
 </div>
 
