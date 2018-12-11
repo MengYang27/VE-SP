@@ -27,7 +27,7 @@ function initTable() {
           sortable: true
         }, {
           title: 'Question Detail',
-          colspan: 9,
+          colspan: 10,
           align: 'center'
         }
       ],

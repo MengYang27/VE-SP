@@ -206,7 +206,7 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
         <!-- .row -->
       </div>
 
-      <div >
+      <div>
         <div class="form-group col-md-2">
           <label for="exampleFormControlSelect1">Upload Question Audio 1</label>
           <label class="btn btn-default" style="display:block" for="my-file-selector">
@@ -254,34 +254,40 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
         </div>
       </div>
 
-      <audio controls>
-        <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/mp3">
-        <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/m4a">
-        <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/wav">
-        <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/ogg">
-        Your browser does not support the audio element.
-      </audio>
+      <div class="form-group col-md-12">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <audio controls="controls">
+            <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/mp3">
+            <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/m4a">
+            <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/wav">
+            <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/ogg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <audio controls="controls">
+            <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/mp3">
+            <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/m4a">
+            <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/mav">
+            <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/ogg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
 
-      <audio controls>
-        <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/mp3">
-        <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/m4a">
-        <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/mav">
-        <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/ogg">
-        Your browser does not support the audio element.
-      </audio>
-
-
-      <audio controls>
-        <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/mp3">
-        <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/m4a">
-        <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/wav">
-        <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/ogg">
-        Your browser does not support the audio element.
-      </audio>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <audio controls="controls">
+            <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/mp3">
+            <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/m4a">
+            <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/wav">
+            <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/ogg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
 
 
 
-      <div  style="display:none">
+      <div style="display:none">
         <div class="col-sm-3 col-md-3" style="padding: 0px">
           <label for="select-group" style="color: lightgrey;">Categories</label>
           <div class="select-group">
@@ -331,7 +337,7 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
         <input type="hidden" id="sampleAnswerAudioPath3" name="sampleAnswerAudioPath3" value="<?php echo $currentQuestion->sampleAnswerAudioPath3; ?>" />
       </div>
 
-      <div >
+      <div>
         <div class="form-group col-md-8">
           <label for="content">Question Script</label>
           <textarea name="content" class="form-control" id="content" rows="10"><?php echo $currentQuestion->content; ?></textarea>
