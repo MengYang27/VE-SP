@@ -163,15 +163,15 @@ function getMainTableInfo(questionName) {
   switch(questionName) {
     case 'Read Aloud':
       mainTableName = 'rainfo';
-      newButtonURL = 'questionmgt/speaking/ra';
+      newButtonURL = 'questionmgt/speaking/ra?rid=1';
       questionType = 'ra';
-      updateURL = 'questionmgt/speaking/ra_update';
+      updateURL = 'questionmgt/speaking/ra_update?rid=1';
       break;
     case 'Repeat Sentence':
       mainTableName = 'rsinfo';
-      newButtonURL = 'questionmgt/speaking/rs';
+      newButtonURL = 'questionmgt/speaking/rs?rid=2';
       questionType = 'rs';
-      updateURL = 'questionmgt/speaking/rs_update';
+      updateURL = 'questionmgt/speaking/rs_update?rid=2';
       break;
 
   }

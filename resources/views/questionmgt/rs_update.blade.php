@@ -272,7 +272,36 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
                     </div>
                 </div>
 
-
+                <div class="form-group col-md-12">
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                          <audio controls="controls">
+                            <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/mp3">
+                            <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/m4a">
+                            <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/wav">
+                            <source src="{{asset($currentQuestion->sampleAnswerAudioPath)}}" type="audio/ogg">
+                            Your browser does not support the audio element.
+                          </audio>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                          <audio controls="controls">
+                            <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/mp3">
+                            <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/m4a">
+                            <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/mav">
+                            <source src="{{asset($currentQuestion->sampleAnswerAudioPath2)}}" type="audio/ogg">
+                            Your browser does not support the audio element.
+                          </audio>
+                        </div>
+                
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                          <audio controls="controls">
+                            <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/mp3">
+                            <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/m4a">
+                            <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/wav">
+                            <source src="{{asset($currentQuestion->sampleAnswerAudioPath3)}}" type="audio/ogg">
+                            Your browser does not support the audio element.
+                          </audio>
+                        </div>
+                      </div>
 
                 <div id="hidden_categories"></div>
                 <input type="hidden" name="publishDate" value="<?php echo $currentQuestion->publishdate; ?>" />
