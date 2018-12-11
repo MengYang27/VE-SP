@@ -305,26 +305,9 @@ Route::get('/home', function () {
 Route::get('/bookshelf', 'homepagecontroller@bookshelf');
 
 /* Student Practices Routes */
-Route::get('/practise', [
-    'middleware' => 'SetSideBar',
-    'uses' => 'PractiseController@index',
-]);
+Route::get('/s_ra', 'practisecontroller@s_ra');
 
-Route::get('/practise/{category}', [
-    'middleware' => 'SetSideBar',
-    'uses' => 'PractiseController@index',
-]);
-
-Route::get('/practise/{category}/{subclass}', [
-    'middleware' => 'SetSideBar',
-    'uses' => 'PractiseController@redirectToList',
-]);
-
-Route::get('/practise/{category}/{subclass}/{questionID}', [
-    'middleware' => 'SetSideBar',
-    'uses' => 'PractiseController@redirectToQuestion',
-]);
-
+/* other views */
 Route::get('/adminsettings', function () {
     return view('admisettings');
 });

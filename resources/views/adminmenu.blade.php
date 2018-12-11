@@ -367,7 +367,74 @@ $subclass = 'home';
                     <i class="fa fa-child"></i> <span>Personal Profile</span>
                 </a>
             </li>
-
+            <li <?php if($mainclass=='practise' ) { ?> class="active treeview"
+                    <?php } else { ?> class="treeview"
+                    <?php } ?>>
+                    <a href="#">
+                        <i class="fa fa-gamepad"></i>
+                        <span>Practise</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li class="treeview <?php if($subclass == 'listening') { ?> active <?php } ?>">
+                            <a href="#">
+                                <i class="fa fa-archive"></i>
+                                <span>Listening</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{url('/l_mcsa')}}"><i class="fa fa-child"></i> <span>Multiple Choice - SA (l)</span></a></li>
+                                <li><a href="{{url('/l_mcma')}}"><i class="fa fa-child"></i> <span>Multiple Choice - MA (l)</span></a></li>
+                                <li><a href="{{url('/l_fib')}}"><i class="fa fa-child"></i> <span>Fill in the blank(l)</span></a></li>
+                                <li><a href="{{url('/l_sst')}}"><i class="fa fa-child"></i> <span>Summarize Spoken Text</span></a></li>
+                                <li><a href="{{url('/l_hcs')}}"><i class="fa fa-child"></i> <span>Highlight Correct Summary</span></a></li>
+                                <li><a href="{{url('/l_smw')}}"><i class="fa fa-child"></i> <span>Select Missing Word</span></a></li>
+                                <li><a href="{{url('/l_hiw')}}"><i class="fa fa-child"></i> <span>Highlight Incorrect Words</span></a></li>
+                                <li><a href="{{url('/l_wfd')}}"><i class="fa fa-child"></i> <span>Write From Dictation</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview <?php if($subclass == 'reading') { ?> active <?php } ?>">
+                            <a href="#">
+                                <i class="fa fa-archive"></i>
+                                <span>Reading</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{url('/r_mcsa')}}"><i class="fa fa-child"></i> <span>Multiple Choice - SA (r)</span></a></li>
+                                <li><a href="{{url('/r_mcma')}}"><i class="fa fa-child"></i> <span>Multiple Choice - MA (r)</span></a></li>
+                                <li><a href="{{url('/r_fibr')}}"><i class="fa fa-child"></i> <span>Fill in the blank(r)</span></a></li>
+                                <li><a href="{{url('/r_rp')}}"><i class="fa fa-child"></i> <span>Reorder Paragraph</span></a></li>
+                                <li><a href="{{url('/r_fibrw')}}"><i class="fa fa-child"></i> <span>Fill in the blank(rw)e</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview <?php if($subclass == 'speaking') { ?> active <?php } ?>">
+                            <a href="#">
+                                <i class="fa fa-archive"></i>
+                                <span>Speaking</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{url('/s_rs')}}"><i class="fa fa-child"></i> <span>Repeat Sentence</span></a></li>
+                                <li><a href="{{url('/s_ra')}}"><i class="fa fa-child"></i> <span>Read Aloud</span></a></li>
+                                <li><a href="{{url('/s_di')}}"><i class="fa fa-child"></i> <span>Describe Image</span></a></li>
+                                <li><a href="{{url('/s_rl')}}"><i class="fa fa-child"></i> <span>Retell Lecture</span></a></li>
+                                <li><a href="{{url('/s_asq')}}"><i class="fa fa-child"></i> <span>Answer
+                                            Short Question</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview <?php if($subclass == 'writing') { ?> active <?php } ?>">
+                            <a href="#">
+                                <i class="fa fa-archive"></i>
+                                <span>Writing</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{url('/w_swt')}}"><i class="fa fa-child"></i> <span>Summarize Written Text</span></a></li>
+                                <li><a href="{{url('/w_we')}}"><i class="fa fa-child"></i> <span>Write Essay</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
 
             @else
             <li <?php if($subclass=='home' ) { ?> class="active"
