@@ -84,6 +84,7 @@ $currentQuestion->comment = $infoFromDB[0][18];
 $currentQuestion->categories = $infoFromDB[0][8];
 $currentQuestion->categories_array = string_to_array(",", $currentQuestion->categories);
 $currentQuestion->audioPaths = $infoFromDB[0][17];
+$currentQuestion->inputUser = $session->get('userId');
 // var_dump($currentQuestion->audioPaths);
 $audioPaths_array = string_to_array(",", $currentQuestion->audioPaths);
 $currentQuestion->sampleAnswerAudioPath = array_key_exists(0, $audioPaths_array) ? $audioPaths_array[0] : '';
@@ -146,7 +147,7 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
     // var_dump($_POST);
   ?>
 
-  <div class="container">
+  <div class="content">
 
     {{-- content here --}}
     <ul class="nav nav-tabs">
@@ -352,7 +353,7 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
 
 
 
-    <!-- .container -->
+    <!-- .content -->
   </div>
 
 </div>

@@ -40,24 +40,14 @@
     if(isset($_GET["updates"]) && $_GET["updates"] == '1') {
       echo '<script type="text/javascript">document.addEventListener("DOMContentLoaded", function(event) {toastr.success("The record has been updated, cheers!");});</script>';
       echo '<script type="text/javascript">alert("One new record has been added, cheers!");</script>';
+    } elseif (isset($_GET["updates"]) && $_GET["updates"] == '0') {
+      echo '<script type="text/javascript">alert("Same Record has found.");</script>';
     }
 
-    
-    // echo '<script type="text/javascript">toastr.success("The record has been updated, cheers!");</script>';
-    
-    // var_dump($session);
-    $id = $session->get('userId');
-    $questionmgt_root = resource_path() . '/' . 'questionmgt';
-    // var_dump($id);
-    // var_dump(resource_path());
-    // var_dump($questionmgt_root);
-    // require($questionmgt_root.'prac_table_data.php');
-    // $resource_path = resource_path() . '/' . 
-
-    // var_dump($_POST);
+    $updates = 0;
   ?>
 
-  <div class="container">
+  <div class="content">
 
     {{-- content here --}}
 
@@ -66,7 +56,7 @@
       <!-- <li role="presentation"><a href="#"></a></li> -->
     </ul>
 
-    <form id="form" method="post" action="{{ url('/questionmgt/speaking/ra?updates=1') }}" enctype="multipart/form-data"
+    <form id="form" method="post" action="{{ url('/questionmgt/speaking/ra?updates='.$updates) }}" enctype="multipart/form-data"
       onkeydown="if(event.target.nodeName !== 'TEXTAREA' && event.keyCode==13){return false;}">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -281,8 +271,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     echo '<script type="text/javascript">document.addEventListener("DOMContentLoaded", function(event) {toastr.success("New record has submitted, cheers!");});</script>';
+    $updates = 1;
   } else {
     echo '<script type="text/javascript">document.addEventListener("DOMContentLoaded", function(event) {toastr.error("Duplicated records have found, submittion fails!");});</script>';
+    $updates = 0;
   }
 
 }
@@ -291,7 +283,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    <!-- .container -->
+    <!-- .content -->
   </div>
 
 </div>

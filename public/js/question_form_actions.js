@@ -159,7 +159,11 @@ function checkList(listName, newItem) {
     // console.log(document.getElementById("wordCount").value );
 
     $('#back-button').on('click', function () {
-        window.location = "/questionmgt/speaking";
+        let url_string = window.location.href;
+        let url = new URL(url_string);
+        let rid;
+        if (url.searchParams.get("rid")) {  rid = url.searchParams.get("rid"); } else { rid = '' };
+        window.location = "/questionmgt/speaking"+"?rid="+rid;
     });
 
 // });

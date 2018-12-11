@@ -35,7 +35,7 @@
 
   ?>
 
-  <div class="container">
+  <div class="content">
 
     <?php
   // notification for after updating a record.
@@ -53,13 +53,13 @@
       </button>
       <div class="btn-group">
         <button id="dropdown-selected" type="button" class="btn btn-default">Read Aloud</button>
-        <button id="dropdown-toggle" type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span
-            class="caret"></span></button>
+        {{-- <button id="dropdown-toggle" type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span --}}
+        {{-- <button id="dropdown-toggle" type="button"  class="btn btn-default "></button>
         <ul class="dropdown-menu">
           <li><a href="#">Read Aloud</a></li>
           <li><a href="#">Repeat Sentence</a></li>
           <li class="divider"></li>
-        </ul>
+        </ul> --}}
       </div>
     </div>
 
@@ -92,7 +92,7 @@
 
     <div id="test"><?php #var_dump($_GET); ?></div>
 
-    <!-- .container -->
+    <!-- .content -->
   </div>
 
 

@@ -232,18 +232,21 @@ function fetchDataTable(this_text) {
 
 
 $(document).ready(function() {
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var rid;
+  if (url.searchParams.get("rid")) {  rid = url.searchParams.get("rid"); } else { rid = '' };
 
   window.operateEvents = {
     'click .modify': function (e, value, row, index) {
       // alert(`You click like action, row: ${JSON.stringify(row)}`);
-      let $id = row['id'];
+      let $qid = row['id'];
       // alert($id);
       let questionName = $('#dropdown-selected').text();
       // alert(questionName);
       let updateURL = getMainTableInfo(questionName)['updateURL'];
       // alert(updateURL);
-
-      window.location.href = '../'+updateURL+"?qid="+$id;
+      window.location.href = '../'+updateURL+"?qid="+$qid+"&rid="+rid;
     },
 
     'click .view-one-question': function (e, value, row, index) {
@@ -255,7 +258,7 @@ $(document).ready(function() {
       let updateURL = getMainTableInfo(questionName)['updateURL'];
       // alert(updateURL);
 
-      window.location.href = '../'+updateURL+"?qid="+$id+"&view=1";
+      window.location.href = '../'+updateURL+"?qid="+$id+"&view=1&rid="+rid;
     }  
 
     };
@@ -264,11 +267,6 @@ $(document).ready(function() {
 
 
   $('#table').on('load-success.bs.table', function (e, arg1, arg2) {
-    var url_string = window.location.href;
-    var url = new URL(url_string);
-    var rid;
-    if (url.searchParams.get("rid")) {  rid = url.searchParams.get("rid"); } else { rid = '' };
-    // alert(rid);
     var questionName = ridToQuestionName(rid);
     fetchDataTable(questionName);
     // console.log('good' );
@@ -325,12 +323,12 @@ $(document).ready(function() {
   });
 
   // ajax information from diff tables
-  $(".dropdown-menu li a").click(function () {
-    var selText = $(this).text();
-    $("#dropdown-selected").html(selText);
+  // $(".dropdown-menu li a").click(function () {
+  //   var selText = $(this).text();
+  //   $("#dropdown-selected").html(selText);
 
-    fetchDataTable(selText);
-  })
+  //   fetchDataTable(selText);
+  // })
 
   $('#addnew').on('click', function() {
     newButton();

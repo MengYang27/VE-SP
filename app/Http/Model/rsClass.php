@@ -70,7 +70,7 @@ class rsClass
       'isDifficult' => $this->difficulty,
       'isNew' => $this->isnew,
       'isJJ' => $this->isjj,
-      'publishDate' => "'".addslashes($this->publishdate)."'",
+      'createDate' => "'".addslashes($this->publishdate)."'",
       'updateDate' => "'".addslashes($this->updatedate)."'",
       'category' => "'".addslashes($this->categories)."'",
       'inputUser' => $this->inputUser,
