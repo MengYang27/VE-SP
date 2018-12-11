@@ -306,7 +306,7 @@ Route::get('/bookshelf', 'homepagecontroller@bookshelf');
 
 /* Student Practices Routes */
 Route::get('/s_ra', 'practisecontroller@s_ra');
-
+Route::get('/s_ra_table', 'practisecontroller@s_ra_table');
 /* other views */
 Route::get('/adminsettings', function () {
     return view('admisettings');
