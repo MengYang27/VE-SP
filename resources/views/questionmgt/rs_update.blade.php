@@ -105,7 +105,7 @@ $currentQuestion->sampleAnswerAudioPath3 = array_key_exists(2, $audioPaths_array
 // echo(array_key_exists(1, $audioPaths_array));
 // echo(array_key_exists(2, $audioPaths_array));
 // var_dump($_POST);
-var_dump($infoFromDB);
+// var_dump($infoFromDB);
 // echo "<br/>"."question"."<br/>";
 // var_dump($currentQuestion);
 
@@ -157,7 +157,7 @@ var_dump($infoFromDB);
     // var_dump($_POST);
   ?>
 
-    <div class="container">
+    <div class="content">
         <ul class="nav nav-tabs">
             <li role="presentation" class="active"><a href="#">Velocity English - Repeat Sentence</a></li>
             <!-- <li role="presentation"><a href="#"></a></li> -->
@@ -297,7 +297,7 @@ var_dump($infoFromDB);
         </form>
 
     </div>
-    {{-- .container --}}
+    {{-- content --}}
 
 </div>
 @endsection
